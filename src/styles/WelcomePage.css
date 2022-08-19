@@ -1,3 +1,11 @@
-.App-main-container{
+.WelcomePage-main-container{
   text-align: center;
+}
+.WelcomePage-title{
+  font-family: playfair-display, serif;
+
+  font-weight: 700;
+  
+  font-style: normal;
+
 }
