@@ -1,5 +1,7 @@
 .footer-container{
     min-height: 10vh;
     background-color: rgba(39, 122, 181, 0.748);
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
