@@ -1,13 +1,9 @@
-import WelcomePage  from "./pages/WelcomePage";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-function App(){
-    return(
-<div>
-    <Header/>
-    <WelcomePage/>
-    <Footer/>
-</div>
-    )
+import WelcomePage from "./pages/WelcomePage";
+function App() {
+  return (
+    <div>
+      <WelcomePage />
+    </div>
+  )
 }
 export default App;
