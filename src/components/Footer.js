@@ -2,7 +2,9 @@ import "../styles/Footer.css"
 
 function Footer(){
     return(
-<div></div>
+<div className="footer-container">
+    
+</div>
     )
 }
 export default Footer
