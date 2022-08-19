@@ -1,11 +1,17 @@
-.WelcomePage-main-container{
+.welcomePage-main-container{
   text-align: center;
+  background-image: url(../img/travelsWallpaper.jpg);
+  background-size: cover;
+  min-height: 80vh;
 }
-.WelcomePage-title{
+.welcomePage-title{
+  font-size: 5rem;
+  padding-top: 2rem;
+  margin: 0;
   font-family: playfair-display, serif;
-
   font-weight: 700;
-  
   font-style: normal;
-
+}
+.welcomePage-button{
+margin-top: 3rem;
 }

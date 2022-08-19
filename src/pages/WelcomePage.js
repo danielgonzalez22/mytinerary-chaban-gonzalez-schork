@@ -5,9 +5,9 @@ function WelcomePage() {
   return (
     <>
     <Header/>
-    <div className="WelcomePage-main-container">
-      <h1 className="WelcomePage-title">MyTinerary</h1>
-      <button className="WelcomePage-button">start journey</button>
+    <div className="welcomePage-main-container">
+      <h1 className="welcomePage-title">MyTinerary</h1>
+      <button className="welcomePage-button">start journey</button>
     </div>
     <Footer/>
     </>
