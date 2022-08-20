@@ -3,7 +3,7 @@ function Header(){
     return(
 <div className="header-container">
     <div className="icon">
-        <img src="\img\suitcase.svg" alt="headerIcon" />
+        <img src="img/suitcase.png" alt="headerIcon" />
     </div>
     <nav>
         <a className="navLink" href="../../public/index.html">Home</a>

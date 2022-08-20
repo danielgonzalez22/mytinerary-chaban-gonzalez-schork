@@ -2,8 +2,8 @@
     min-height: 10vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background-color: rgba(39, 122, 181, 0.748);
+    justify-content:space-around;
+    background-color: rgb(247, 214, 170);
 }
 .icon img{
     height: 100px;
@@ -18,5 +18,5 @@ nav{
 }
 
 .accounts img{
-    height: 100px;
+    height: 50px;
 }
