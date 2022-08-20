@@ -1,7 +1,19 @@
 .footer-container{
     min-height: 10vh;
-    background-color: rgba(39, 122, 181, 0.748);
+    background-color: rgb(247, 214, 170);
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+}
+.metodos-style-footer{
+    height: 40px;
+}
+.metodos-pago-footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.redes-sociales-footer{
+    padding: 8px;
+    height: 40px;
 }
