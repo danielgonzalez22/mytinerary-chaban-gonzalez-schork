@@ -1,0 +1,36 @@
+.image-style{
+    object-fit: cover;
+    height: 500px;
+    width: 350px;
+}
+.item{
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    margin: 8px;
+    background-color: rgba(252, 243, 243, 0.181);
+    box-shadow: 0px 6px 31px -1px rgba(0,0,0,0.63);
+}
+.slide{
+    min-height: 70vh;
+    background-color: blanchedalmond;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.popular-subtitle{
+    color: rgb(246, 79, 79);
+    text-shadow: 1px 6px 10px rgba(120, 77, 46, 0.754);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+}
+.title-city{
+    font-size: 30px;
+    font-weight: 500;
+    font-family: adobe-handwriting-ernie;
+}
