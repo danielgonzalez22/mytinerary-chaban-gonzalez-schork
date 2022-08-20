@@ -5,6 +5,9 @@
     justify-content: space-between;
     background-color: rgba(39, 122, 181, 0.748);
 }
+.icon img{
+    height: 100px;
+}
 nav{
     display: flex;
     justify-content: space-between;
@@ -12,4 +15,8 @@ nav{
 }
 .navLink{
     text-decoration: none;
+}
+
+.accounts img{
+    height: 100px;
 }
