@@ -1,0 +1,22 @@
+.header-container{
+    min-height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(39, 122, 181, 0.748);
+}
+.icon img{
+    height: 100px;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    min-width: 7rem;
+}
+.navLink{
+    text-decoration: none;
+}
+
+.accounts img{
+    height: 100px;
+}
