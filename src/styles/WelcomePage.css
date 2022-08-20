@@ -5,21 +5,40 @@
 }
 .welcomePage-main-container{
   text-align: center;
-  /* background-image: url(../); */
   background-size: cover;
   min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  background-image: url(../../public/img/bilbao.jpg);
 }
 .welcomePage-title{
-  color: rgb(176, 0, 0);
+  color: rgb(246, 79, 79);
   height: 20vh;
   font-size: 4rem;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: 700;
   font-style: normal;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-shadow: 1px 6px 10px rgba(120, 77, 46, 0.754);
 }
 .welcomePage-button{
-  background-color: aquamarine;
+  background-image: linear-gradient(to right, #eacda3 0%, #d6ae7b  51%, #eacda3  100%);
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: rgb(163, 98, 38);         
+  border-radius: 10px;
+  border: 1px solid rgba(245, 245, 220, 0);
+  box-shadow: 0px 3px 31px rgba(0, 0, 0, 0.321);
+  padding: 8px 45px;
+}
+.welcomePage-button:hover{
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
 }
