@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect} from "react"
 import Arrow from "./Arrow"
 import "../styles/Carousel.css"
 
@@ -7,12 +7,19 @@ function Carousel(props) {
   const [start, setStart] = useState(0)
   const [end, setEnd] = useState(start + range)
   const items = props.data
+
   const itemView = (item) => (
     <div className="item">
       <img src={item.url} alt={item.title} className="image-style" />
       <p className="title-city">{item.title}</p>
     </div>
   )
+
+  useEffect(() => {
+    setInterval(function () {
+      next()
+    }, 5000)
+  })
 
   function previous() {
     if (start >= range) {
