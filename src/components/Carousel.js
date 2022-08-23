@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react"
+import { useState, useEffect } from "react"
 import Arrow from "./Arrow"
 import "../styles/Carousel.css"
 
@@ -6,6 +6,7 @@ function Carousel(props) {
   const range = props.range
   const [start, setStart] = useState(0)
   const [end, setEnd] = useState(start + range)
+  const [intervalId, setIntervalId] = useState()
   const items = props.data
 
   const itemView = (item) => (
@@ -16,15 +17,23 @@ function Carousel(props) {
   )
 
   useEffect(() => {
-    setInterval(function () {
+    let id = setInterval(function () {
       next()
     }, 5000)
-  })
+
+    setIntervalId(id)
+
+    return () => clearInterval(id)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [start])
 
   function previous() {
     if (start >= range) {
       setStart(start - range)
       setEnd(end - range)
+    } else {
+      setStart(items.length - range)
+      setEnd(items.length)
     }
   }
 
@@ -32,7 +41,11 @@ function Carousel(props) {
     if (end < items.length) {
       setStart(start + range)
       setEnd(end + range)
+    } else {
+      setStart(0)
+      setEnd(range)
     }
+    clearInterval(intervalId)
   }
 
   return (
