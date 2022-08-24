@@ -4,7 +4,6 @@ function CallToAction() {
   return (
       <div>
         <LinkRouter to='/Cities' className="navLink"><button className="welcomePage-button">start a journey</button></LinkRouter>
-        
       </div>
   );
 }
