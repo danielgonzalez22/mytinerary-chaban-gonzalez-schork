@@ -9,6 +9,10 @@ function Footer(){
         <img src="/img/whatsapp.svg" alt="whatsappIcon" className="socials"/>
         <img src="/img/instagram.svg" alt="instagramIcon" className="socials"/>
     </div>
+    <div>
+        <h4>Navigate</h4>
+        
+    </div>
     <div className="metodos-pago-footer">
         <h4>Payment Methods:</h4>
         <img src="/img/metodosdepago.png" alt="instagramIcon" className="metodos-style-footer"/>
