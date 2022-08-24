@@ -1,13 +1,12 @@
 import WelcomePage from "./pages/WelcomePage";
 import Cities from "./pages/Cities";
 import NewCity from "./pages/NewCity";
-import ScrollToTop from "./components/ScrollToTop";
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import React from "react";
 function App() {
   return (
     <BrowserRouter>
-    <ScrollToTop/>      
     <Routes>
         <Route path='/' element={<WelcomePage/>}></Route>
         <Route path='/Cities' element={<Cities/>}></Route>

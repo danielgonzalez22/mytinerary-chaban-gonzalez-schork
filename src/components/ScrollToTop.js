@@ -8,6 +8,6 @@ export default function ScrollToTop() {
         window.scrollTo(0, 0)
     }, [pathname])
   return (
-    <div>ScrollToTop</div>
+    <button>Scroll to Top</button>
   )
 }

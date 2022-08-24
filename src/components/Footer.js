@@ -1,5 +1,6 @@
 import "../styles/Footer.css"
 import {Link as LinkRouter} from 'react-router-dom'
+import ScrollToTop from "./ScrollToTop";
 
 function Footer(){
     return(
@@ -11,6 +12,7 @@ function Footer(){
         <LinkRouter to='/' className="navLink">Home</LinkRouter>
         <LinkRouter to='/Cities' className="navLink">Cities</LinkRouter>
         <LinkRouter to='/NewCity' className="navLink">NewCity</LinkRouter>
+        <ScrollToTop/> 
         
     </div>
     <div className="metodos-pago-footer">
