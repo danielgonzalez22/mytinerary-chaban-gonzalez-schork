@@ -1,4 +1,5 @@
 import "../styles/Header.css"
+import {Link as LinkRouter} from 'react-router-dom'
 function Header(){
     return(
 <div className="header-container">
@@ -6,8 +7,9 @@ function Header(){
         <img src="/img/suitcase.png" alt="headerIcon" className="suitcase-logo"/>
     </div>
     <nav>
-        <a className="navLink" href="../../public/index.html">Home</a>
-        <a className="navLink" href="../../public/index.html">Cities</a>
+        <LinkRouter to='/' className="navLink">Home</LinkRouter>
+        <LinkRouter to='/Cities' className="navLink">Cities</LinkRouter>
+        <LinkRouter to='/NewCity' className="navLink">NewCity</LinkRouter>
     </nav>
     <div className="accounts">
         <img src="/img/user.svg" alt="accountIcon" />
