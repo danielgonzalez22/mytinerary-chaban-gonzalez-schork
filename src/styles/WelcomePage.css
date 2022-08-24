@@ -5,19 +5,19 @@
 }
 .welcomePage-main-container{
   text-align: center;
-  background-size: cover;
-  min-height: 90vh;
+  min-height: 85vh;
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-  background-image: url(../../public/img/bilbao.jpg);
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(247, 235, 209);
 }
 .welcomePage-title{
   color: rgb(246, 79, 79);
   height: 15vh;
-  font-size: 4rem;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 10vh;
+  font-family: nunito, sans-serif;
   font-weight: 700;
   font-style: normal;
   display: flex;
@@ -29,6 +29,7 @@
   background-image: linear-gradient(to right, #eacda3 0%, #d6ae7b  51%, #eacda3  100%);
   text-align: center;
   text-transform: uppercase;
+  font-family: nunito, sans-serif;
   transition: 0.5s;
   background-size: 200% auto;
   color: rgb(163, 98, 38);         
@@ -45,11 +46,28 @@
 .slogan-main{
   color: rgb(157, 96, 4);
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2vh;
+  font-family: nunito, sans-serif;
+  margin-top: 20px;
   padding: 8px;
-  text-decoration: underline;
   transition: 0.5s;
 }
 .slogan-main:hover{
   color: rgb(139, 8, 8);
+}
+.mochila-inicio{
+  max-height: 300px;
+}
+.main-text{
+  display: flex;
+  flex-direction: column;
+}
+.my-style{
+  font-family: adobe-handwriting-ernie; ;
+}
+.dotted-line{
+  margin-top: 100px;
+  width: 80%;
+  height: 10px;
+  border-bottom: 2px dashed rgba(138, 105, 71, 0.63);
 }

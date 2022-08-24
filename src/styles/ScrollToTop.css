@@ -1,4 +1,19 @@
 .scroll-to-top{
-    min-width: 10%;
-    min-height: 3vh;
+    background-image: linear-gradient(to right, #eacda3 0%, #d6ae7b  51%, #eacda3  100%);
+    text-align: center;
+    text-transform: uppercase;
+    font-family: nunito, sans-serif;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: rgb(163, 98, 38);         
+    border-radius: 10px;
+    border: 1px solid rgba(245, 245, 220, 0);
+    box-shadow: 0px 3px 31px rgba(0, 0, 0, 0.321);
+    padding: 8px 45px;
+    margin-bottom: 10px;
+}
+.scroll-to-top:hover{
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
 }

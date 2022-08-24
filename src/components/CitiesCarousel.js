@@ -15,7 +15,7 @@ function CitiesCarousel(){
         { url: "/img/cities/venecia.jpg", title: "Venice" }
       ]
 return(
-    <Carousel data={items} range={4} title = "Popular MYTINERARIES!" />
+    <Carousel data={items} range={4} title = "Popular MyTineraries!" />
 )
 }
 export default CitiesCarousel

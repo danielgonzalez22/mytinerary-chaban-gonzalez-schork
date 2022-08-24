@@ -11,36 +11,46 @@
     align-items: center;
     padding: 8px;
     margin: 8px;
-    background-color: rgba(252, 243, 243, 0.181);
+    background-color:rgb(255, 255, 255);
     box-shadow: 0px 6px 31px -1px rgba(0,0,0,0.63);
 }
 .slide{
-    min-width: 90%;
-    min-height: 100vh;
+    min-width: 60%;
+    min-height: 60vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    margin-bottom: 100px;
 }
 .cards-container{
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: blanchedalmond;
+    align-items:center;
+    background-color: rgb(247, 235, 209);
 }
 .popular-subtitle{
     color: rgb(246, 79, 79);
     text-shadow: 1px 6px 10px rgba(120, 77, 46, 0.754);
+    font-family: nunito, sans-serif;
+    text-align: center;
     display: flex;
     justify-content: center;
-    width: 100%;
-    padding: 10px;
+    padding: 8px;
 }
 .title-city{
     font-size: 30px;
     font-weight: 500;
     font-family: adobe-handwriting-ernie;
 }
-.popular-subtitle{
-    background-color: blanchedalmond;
+.cam-carousel{
+    max-height: 300px;
+}
+.subtitle{
+    width: 100%;
+    background-color: rgb(247, 235, 209);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
 }
