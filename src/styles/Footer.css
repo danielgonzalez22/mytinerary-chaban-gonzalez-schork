@@ -1,5 +1,5 @@
 .footer-container{
-    min-height: 12vh;
+    min-height: 15vh;
     background-color: rgb(247, 214, 170);
     display: flex;
     justify-content: space-around;
@@ -20,15 +20,40 @@
     background-color: rgba(127, 92, 26, 0.304);
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     width: 100%;
-    min-height: 6vh;
+    min-height: 5vh;
 }
 .socials{
     width: 30%;
-    height: 5vh;
+    height: 4vh;
     padding: 8px;
 }
 h4{
-    font-weight: 400;
+    font-weight: 600;
+}
+.footer-nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.half-footer{
+    width: 50%;
+    min-height: 5vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+.other-half-footer{
+    width: 50%;
+    min-height: 5vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.redes-sociales-footer{
+    display: flex;
+    align-items: center;
 }
