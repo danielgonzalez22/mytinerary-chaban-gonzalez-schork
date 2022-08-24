@@ -1,0 +1,13 @@
+.arrow{
+    max-width: 3%;
+    max-height: 4vh;
+    background-color: rgba(165, 42, 42, 0.235);
+    border: 1px solid black;
+    padding: 8px;
+    border-radius: 80%;
+}
+@media (max-width:768px){
+    .arrow{
+        display: none;
+    }
+}

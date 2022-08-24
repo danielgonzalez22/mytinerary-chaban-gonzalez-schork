@@ -50,13 +50,17 @@ function Carousel(props) {
 
   return (
     <>
-      <div className="slide">
+      <div className="subtitle">
         <h2 className="popular-subtitle">{props.title}</h2>
-        <Arrow icon={"<"} click={previous} />
-        {items.slice(start, end).map(itemView)}
-        <Arrow icon={">"} click={next} />
       </div>
-      <div className="carousel-buttons">
+      <div className="cards-container">
+        <Arrow icon={"/img/caret-left.svg"} click={previous} />
+        <div className="slide">
+          {items.slice(start, end).map(itemView)}
+        </div>
+        <Arrow icon={"/img/caret-right.svg"} click={next} />
+        <div className="carousel-buttons">
+        </div>
       </div>
     </>
   )

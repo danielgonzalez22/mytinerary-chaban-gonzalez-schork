@@ -1,7 +1,10 @@
+import "../styles/Arrow.css"
+
+
 function Arrow(props) {
     return (
         <button className="arrow" onClick={props.click}>
-            {props.icon}
+            <img src={props.icon}></img>
         </button>
     )
 }
