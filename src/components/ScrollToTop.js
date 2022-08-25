@@ -24,6 +24,9 @@ function ScrollToTop() {
         <button className='scroll-to-top' onClick={goToTop}>Scroll to Top</button>
   )
 }
+
+//para utilizar en un futuro con boton flotante y dinamico ScrollToTop
+
 //import React, {useState, useEffect} from 'react'
 //const [showTopBtn, setShowTopBtn] = useState(false)
 // useEffect(() => {

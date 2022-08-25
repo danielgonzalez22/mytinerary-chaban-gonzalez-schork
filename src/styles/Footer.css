@@ -7,10 +7,10 @@
     flex-wrap: wrap;
     box-shadow: 0px -15px 31px -1px rgba(0, 0, 0, 0.44);
 }
-.metodos-style-footer{
+.payment-style-footer{
     height: 27px;
 }
-.metodos-pago-footer{
+.payment-footer{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -53,7 +53,7 @@ h4{
     align-items: center;
     flex-direction: column;
 }
-.redes-sociales-footer{
+.socials-footer{
     display: flex;
     align-items: center;
 }
