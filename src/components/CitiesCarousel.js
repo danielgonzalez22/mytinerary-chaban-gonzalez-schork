@@ -1,5 +1,5 @@
 import Carousel from "./Carousel";
-function CitiesCarousel(){
+function CitiesCarousel() {
     const items = [
         { url: "/img/cities/ciudad-del-cabo.jpg", title: "Cape Town" },
         { url: "/img/cities/dubai.jpg", title: "Dubai" },
@@ -13,9 +13,9 @@ function CitiesCarousel(){
         { url: "/img/cities/sidney.jpg", title: "Sidney" },
         { url: "/img/cities/udaipur.jpg", title: "Udaipur" },
         { url: "/img/cities/venecia.jpg", title: "Venice" }
-      ]
-return(
-    <Carousel data={items} range={4} title = "Popular MyTineraries!" />
-)
+    ]
+    return (
+        <Carousel data={items} range={4} title="Popular MyTineraries!" />
+    )
 }
 export default CitiesCarousel
