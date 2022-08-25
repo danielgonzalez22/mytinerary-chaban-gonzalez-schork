@@ -1,17 +1,19 @@
-.header-container{
+.header-container {
     min-height: 10vh;
     display: flex;
     align-items: center;
-    justify-content:space-around;
+    justify-content: space-around;
     background-color: rgb(247, 214, 170);
-    box-shadow: 0px 6px 31px -1px rgba(0,0,0,0.63);
+    box-shadow: 0px 6px 31px -1px rgba(0, 0, 0, 0.63);
 }
-nav{
+
+nav {
     display: flex;
     justify-content: space-between;
     min-width: 7rem;
 }
-.navLink{
+
+.navLink {
     color: black;
     font-family: nunito, sans-serif;
     font-size: 1.8vh;
@@ -21,17 +23,60 @@ nav{
     transition: 0.5s;
 }
 
-.accounts img{
+.accounts img {
     height: 40px;
 }
-.suitcase-logo{
+
+.suitcase-logo {
     height: 8vh;
     min-width: 10%;
 }
-.logo-nav{
+
+.logo-nav {
     display: flex;
     align-items: center;
 }
-.navLink:hover{
+
+.navLink:hover {
     font-weight: 700;
+}
+
+.burger-img {
+    width: 45px;
+    background-color: rgb(247, 214, 170);
+}
+
+.burger-nav {
+    background-color: rgb(247, 214, 170);
+}
+
+.burger-button {
+    background-color: rgb(247, 214, 170);
+    border: 0px;
+}
+
+.burger-menu {
+    background-color: rgb(247, 214, 170);
+    width: 10vh;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    border: 1px solid rgb(206, 177, 142);
+    border-radius: 5px;
+}
+
+@media (min-width: 600px) {
+    .burger-nav {
+       display: none;
+    }
+}
+@media (max-width: 600px) {
+    nav {
+        display: none;
+    }
+    .suitcase-logo {
+        display: none;
+    }
 }

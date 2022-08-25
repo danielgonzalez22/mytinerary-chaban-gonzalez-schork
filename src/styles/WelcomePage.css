@@ -71,3 +71,8 @@
   height: 10px;
   border-bottom: 2px dashed rgba(138, 105, 71, 0.63);
 }
+@media (max-width: 550px){
+  .welcomePage-title{
+    font-size: 15vw;
+  }
+}

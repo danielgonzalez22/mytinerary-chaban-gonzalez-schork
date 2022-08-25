@@ -12,7 +12,7 @@ function WelcomePage() {
             <p className='slogan-main'>Find your perfect trip, designed by insiders who know and love their cities!</p>
           </div>
           <div className='main-bag'>
-            <img src="/img/gummy-travel-bag.svg" className='mochila-inicio' />
+            <img src="/img/gummy-travel-bag.svg" alt="icon" className='mochila-inicio' />
           </div>
         </div>
         <CallToAction />

@@ -51,7 +51,7 @@ function Carousel(props) {
   return (
     <>
       <div className="subtitle">
-        <img src="/img/gummy-polaroid.svg" className='cam-carousel' />
+        <img src="/img/gummy-polaroid.svg" alt="cam-carousel" className='cam-carousel' />
         <h2 className="popular-subtitle">{props.title}</h2>
       </div>
       <div className="cards-container">
