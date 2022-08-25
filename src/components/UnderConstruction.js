@@ -6,7 +6,7 @@ function UnderConstruction() {
         <p>Under Construction!</p>
       </div>
       <div className='imagenes-construc'>
-        <img src="/img/ciudaddos.svg" />
+        <img src="/img/ciudaddos.svg" alt="underConstructionImg"/>
       </div>
     </div>
   );
