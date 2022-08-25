@@ -15,11 +15,11 @@ function Footer(){
         <ScrollToTop/> 
     </div>
     <div className="other-half-footer">
-    <div className="metodos-pago-footer">
+    <div className="payment-footer">
         <h4>Payment Methods:</h4>
-        <img src="/img/metodosdepago.png" alt="instagramIcon" className="metodos-style-footer"/>
+        <img src="/img/metodosdepago.png" alt="instagramIcon" className="payment-style-footer"/>
     </div>
-    <div className="redes-sociales-footer">
+    <div className="socials-footer">
         <h4>Socials:</h4>
         <img src="/img/facebook.svg" alt="facebookIcon" className="socials"/>
         <img src="/img/whatsapp.svg" alt="whatsappIcon" className="socials"/>

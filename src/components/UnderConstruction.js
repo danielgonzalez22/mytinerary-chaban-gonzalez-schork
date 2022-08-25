@@ -5,7 +5,7 @@ function UnderConstruction() {
       <div className='title'>
         <p>Under Construction!</p>
       </div>
-      <div className='imagenes-construc'>
+      <div className='under-construction-img'>
         <img src="/img/ciudaddos.svg" alt="underConstructionImg"/>
       </div>
     </div>
