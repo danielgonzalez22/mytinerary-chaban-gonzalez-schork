@@ -1,0 +1,12 @@
+.cities-main{
+    min-height: 80vh;
+}
+.cards-container{
+    min-width: 60%;
+    min-height: 60vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 100px;
+}
