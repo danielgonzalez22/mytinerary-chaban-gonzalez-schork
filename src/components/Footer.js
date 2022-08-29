@@ -15,10 +15,6 @@ function Footer(){
         <ScrollToTop/> 
     </div>
     <div className="other-half-footer">
-    <div className="payment-footer">
-        <h4>Payment Methods:</h4>
-        <img src="/img/metodosdepago.png" alt="instagramIcon" className="payment-style-footer"/>
-    </div>
     <div className="socials-footer">
         <h4>Socials:</h4>
         <img src="/img/facebook.svg" alt="facebookIcon" className="socials"/>
