@@ -1,0 +1,78 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.welcomePage-main-container{
+  text-align: center;
+  min-height: 85vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(247, 235, 209);
+}
+.welcomePage-title{
+  color: rgb(246, 79, 79);
+  height: 15vh;
+  font-size: 10vh;
+  font-family: nunito, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 1px 6px 10px rgba(120, 77, 46, 0.754);
+}
+.welcomePage-button{
+  background-image: linear-gradient(to right, #eacda3 0%, #d6ae7b  51%, #eacda3  100%);
+  text-align: center;
+  text-transform: uppercase;
+  font-family: nunito, sans-serif;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: rgb(163, 98, 38);         
+  border-radius: 10px;
+  border: 1px solid rgba(245, 245, 220, 0);
+  box-shadow: 0px 3px 31px rgba(0, 0, 0, 0.321);
+  padding: 8px 45px;
+}
+.welcomePage-button:hover{
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+.slogan-main{
+  color: rgb(157, 96, 4);
+  text-align: center;
+  font-size: 2vh;
+  font-family: nunito, sans-serif;
+  margin-top: 20px;
+  padding: 8px;
+  transition: 0.5s;
+}
+.slogan-main:hover{
+  color: rgb(139, 8, 8);
+}
+.bag-home{
+  max-height: 300px;
+}
+.main-text{
+  display: flex;
+  flex-direction: column;
+}
+.my-style{
+  font-family: adobe-handwriting-ernie; ;
+}
+.dotted-line{
+  margin-top: 100px;
+  width: 80%;
+  height: 10px;
+  border-bottom: 2px dashed rgba(138, 105, 71, 0.63);
+}
+@media (max-width: 550px){
+  .welcomePage-title{
+    font-size: 15vw;
+  }
+}

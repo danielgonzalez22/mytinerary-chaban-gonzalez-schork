@@ -1,0 +1,56 @@
+.image-style{
+    object-fit: cover;
+    height: 500px;
+    width: 300px;
+}
+.item{
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    margin: 8px;
+    background-color:rgb(255, 255, 255);
+    box-shadow: 0px 6px 31px -1px rgba(0,0,0,0.63);
+}
+.slide{
+    min-width: 60%;
+    min-height: 60vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 100px;
+}
+.cards-container{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    background-color: rgb(247, 235, 209);
+}
+.popular-subtitle{
+    color: rgb(246, 79, 79);
+    text-shadow: 1px 6px 10px rgba(120, 77, 46, 0.754);
+    font-family: nunito, sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+}
+.title-city{
+    font-size: 30px;
+    font-weight: 500;
+    font-family: adobe-handwriting-ernie;
+}
+.cam-carousel{
+    max-height: 300px;
+}
+.subtitle{
+    width: 100%;
+    background-color: rgb(247, 235, 209);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+}

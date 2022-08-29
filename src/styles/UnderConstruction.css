@@ -1,0 +1,21 @@
+.under-cons{
+    min-height: 75vh;
+    background-color: rgb(247, 235, 209);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.under-construction-img{
+    width: 300px;
+    min-height: 10vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.title{
+    text-align: center;
+    font-size: large;
+    font-family: adobe-handwriting-ernie;
+}
