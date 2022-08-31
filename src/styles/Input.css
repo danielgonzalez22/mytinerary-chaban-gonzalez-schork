@@ -1,0 +1,16 @@
+.input{
+    margin: 8px;
+    padding: 8px;
+    width: 30vw;
+    height: 2rem;
+    background-color: rgba(95, 158, 160, 0);
+    border: 3px solid rgba(218, 186, 141, 0.535);
+    border-radius: 8px;
+    font-size: large;
+    font-style: oblique;
+}
+@media (max-width: 550px){
+    .input{
+        width: 60vw;
+    }
+  }

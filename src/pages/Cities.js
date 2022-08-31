@@ -24,7 +24,7 @@ const itemView = (item) => (
   return (
     <WebsiteLayout>
       <div className='cities-main'>
-        <div className="cards-container">
+        <div className="cards-cities-container">
         {items.map(itemView)}
         </div>
       </div>
