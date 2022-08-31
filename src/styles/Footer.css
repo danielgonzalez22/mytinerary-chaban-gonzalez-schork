@@ -20,8 +20,9 @@
 
 .socials {
     width: 30%;
-    height: 4vh;
-    padding: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1vw;
 }
 
 h4 {
@@ -36,7 +37,7 @@ h4 {
 
 .half-footer {
     width: 50%;
-    min-height: 5vh;
+    min-height: 5vw;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
