@@ -7,7 +7,8 @@ function Carousel(props) {
   const [start, setStart] = useState(0)
   const [end, setEnd] = useState(start + range)
   const [intervalId, setIntervalId] = useState()
-  const items = props.data
+  const citiesLimit = 12
+  const items = (props.data).slice(0,(citiesLimit))
 
   const itemView = (item) => (
     <div className="item">
