@@ -1,0 +1,25 @@
+.city-main {
+    min-height: 80vh;
+}
+
+.city-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.city-container img {
+    min-height: 50vh;
+}
+
+.city-details ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.description-p {
+    max-width: 50vw;
+}
