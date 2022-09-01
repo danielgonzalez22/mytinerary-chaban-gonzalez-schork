@@ -9,12 +9,12 @@ function NewCity() {
           <h1 className='title-form'>Add A<span className='my-style'> City</span>!</h1>
           <img src="/img/gummy-city.svg" alt="icon" className='city-form' />
         </div>
-        <div className='form'>
+        <form className='form'>
         <Input text="City"></Input>
         <Input text="Country"></Input>
         <Input text="Description"></Input>
         <button className="welcomePage-button">Send</button>
-        </div>
+        </form>
       </div>
     </WebsiteLayout>
   );
