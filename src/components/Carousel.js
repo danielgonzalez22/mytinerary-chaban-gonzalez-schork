@@ -11,9 +11,9 @@ function Carousel(props) {
   const items = (props.data).slice(0,(citiesLimit))
 
   const itemView = (item) => (
-    <div className="item" key={item.title}>
-      <img src={item.url} alt={item.title} className="image-style" />
-      <p className="title-city">{item.title}</p>
+    <div className="item" key={item.city}>
+      <img src={item.photo} alt={item.city} className="image-style" />
+      <p className="title-city">{item.city}</p>
     </div>
   )
 
