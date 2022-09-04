@@ -1,0 +1,40 @@
+body{
+    background-color: rgb(247, 235, 209);
+}
+.newcity-body{
+min-height: 70vh;
+display: flex;
+flex-direction: column;
+justify-content:center;
+align-items: center;
+flex-wrap: wrap;
+}
+.form{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-bottom: 10px;
+}
+.title-form-page{
+    border-radius: 40px;
+    display: flex;
+    align-items:center;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+}
+.title-form{
+    color: rgb(246, 79, 79);
+    font-size: 50px;
+    font-family: nunito, sans-serif;
+    text-shadow: 1px 6px 10px rgba(120, 77, 46, 0.526);
+    
+}
+.city-form{
+    max-height: 220px;
+}
+  @media (max-width: 550px){
+    .title-form{
+      font-size: 10vw;
+    }
+  }

@@ -1,8 +1,8 @@
-import '../styles/NewCity.css';
+import '../styles/EditCity.css';
 import WebsiteLayout from '../layouts/WebsiteLayout';
 import Input from '../components/Input';
 import * as React from 'react';
-function NewCity() {
+function EditCity() {
   const model = ["Image URL","City Name","Country", "Description","Population","Foundation Year"];
 
   const imageRef = React.useRef();
@@ -26,10 +26,13 @@ function NewCity() {
     <WebsiteLayout>
       <div className='newcity-body'>
         <div className='title-form-page'>
-          <h1 className='title-form'>Add A<span className='my-style'> City</span>!</h1>
+          <h1 className='title-form'>Edit A<span className='my-style'> City</span>!</h1>
           <img src="/img/gummy-city.svg" alt="icon" className='city-form' />
         </div>
         <form className='form' onSubmit={handleSubmit}>
+        <select className='input'>
+            <option></option>
+        </select>
         <Input text="Image Url" reference = {imageRef}></Input>
         <Input text="City Name" reference = {cityRef}></Input>
         <Input text="Country" reference = {countryRef}></Input>
@@ -42,4 +45,4 @@ function NewCity() {
     </WebsiteLayout>
   );
 }
-export default NewCity;
+export default EditCity;

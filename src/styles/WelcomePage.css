@@ -3,6 +3,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+body{
+  background-color: rgb(247, 235, 209);
+}
 .welcomePage-main-container{
   text-align: center;
   min-height: 85vh;
@@ -11,7 +14,6 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: rgb(247, 235, 209);
 }
 .welcomePage-title{
   color: rgb(246, 79, 79);

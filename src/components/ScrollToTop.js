@@ -4,7 +4,6 @@ import "../styles/ScrollToTop.css"
 
 function ScrollToTop() {
   const { pathname } = useLocation()
-  //al utilizar algun nav, carga cada pagina directamente en top
   useEffect(() => {
     window.scrollTo({
       top:0,
@@ -12,7 +11,6 @@ function ScrollToTop() {
     })
   }, [pathname])
 
-  //metodo para scrollear a top de manera suave
   function goToTop() {
     window.scrollTo({
       top: 0,
@@ -25,7 +23,6 @@ function ScrollToTop() {
   )
 }
 
-//para utilizar en un futuro con boton flotante y dinamico ScrollToTop
 
 //import React, {useState, useEffect} from 'react'
 //const [showTopBtn, setShowTopBtn] = useState(false)

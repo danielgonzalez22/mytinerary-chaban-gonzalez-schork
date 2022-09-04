@@ -1,6 +1,7 @@
 import "../styles/Footer.css"
 import {Link as LinkRouter} from 'react-router-dom'
 import ScrollToTop from "./ScrollToTop";
+import ActualYear from "./ActualYear";
 
 function Footer(){
     return(
@@ -15,10 +16,6 @@ function Footer(){
         <ScrollToTop/> 
     </div>
     <div className="other-half-footer">
-    <div className="payment-footer">
-        <h4>Payment Methods:</h4>
-        <img src="/img/metodosdepago.png" alt="instagramIcon" className="payment-style-footer"/>
-    </div>
     <div className="socials-footer">
         <h4>Socials:</h4>
         <img src="/img/facebook.svg" alt="facebookIcon" className="socials"/>
@@ -28,7 +25,7 @@ function Footer(){
     </div>
     <div className="copyright-container">
         <p>Copyright © - MYTINERARY All Rights Reserved.</p>
-        <p>MindHub 2022</p>
+        <p>MindHub {<ActualYear/>}</p>
     </div>
 </div>
     )
