@@ -12,6 +12,7 @@ function NewCity() {
     photo: '',
     population: '',
     foundation: '',
+    description: '',
   }
 
   const [city, setCity] = useState(initialValor)
@@ -21,6 +22,7 @@ function NewCity() {
   const photo =  useRef()
   const population =  useRef()
   const foundation =  useRef()
+  const description = useRef()
   const captureData = async (e) => {
     e.preventDefault()
     const newCity = {
@@ -29,6 +31,7 @@ function NewCity() {
       photo: photo.current.value,
       population:population.current.value,
       foundation: foundation.current.value,
+      description: description.current.value,
       // currency: city.currency,
       // highseason: city.highseason
     }
@@ -49,6 +52,7 @@ console.log(newCity)
       photo: city.image,
       population: city.population,
       foundation: city.foundation,
+      description: city.description,
       // currency: city.currency,
       // highseason: city.highseason
     }
@@ -107,6 +111,12 @@ console.log(newCity)
                 required
                 name="foundation"
                 ref={foundation} />
+                <textarea type="text"
+                className="input"
+                placeholder='Description'
+                required
+                name="description"
+                ref={description} />
            
               <button className='welcomePage-button'>Submit</button>
           </form>
