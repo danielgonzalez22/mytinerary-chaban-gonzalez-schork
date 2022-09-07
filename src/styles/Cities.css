@@ -2,11 +2,11 @@ body{
     background-color: rgb(247, 235, 209);
 }
 .cities-main{
-    min-height: 80vh;
+    min-height: 100vh;
 }
 .cards-cities-container{
     min-width: 60%;
-    min-height: 60vh;
+    min-height: 100vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

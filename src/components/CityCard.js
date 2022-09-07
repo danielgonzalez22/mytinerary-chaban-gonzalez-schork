@@ -7,7 +7,7 @@ export default function CityCard(props) {
     <div className="card">
       <img src={props.image} alt="" className="card-img"/>
       <p className="card-title">{props.title}</p>
-      <LinkRouter to='/*'><button className="card-button" type="">See more...</button></LinkRouter>
+      <LinkRouter to={`/City/${props.id}`}><button className="card-button" type="">See more...</button></LinkRouter>
     </div>
   )
 }

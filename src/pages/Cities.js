@@ -13,7 +13,7 @@ function Cities() {
   },[])
 
 const itemView = (item) => (
-    <CityCard image={item.photo} title={item.city}></CityCard>
+    <CityCard image={item.photo} title={item.city} id={item._id}></CityCard>
 )
   return (
     <WebsiteLayout>
