@@ -16,7 +16,7 @@ function App() {
         <Route path='/City/:id' element={<City/>}></Route>
         <Route path='/EditCity' element={<EditCity/>}></Route>
         <Route path='/*' element={<NotFound/>}></Route>
-      </Routes>
+         </Routes>
     </BrowserRouter>
   )
 }

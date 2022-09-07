@@ -2,7 +2,7 @@ import "../styles/EditCity.css";
 import WebsiteLayout from "../layouts/WebsiteLayout";
 import Input from "../components/Input";
 import axios from "axios";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef,useEffect } from "react";
 
 function EditCity() {
   const model = [
@@ -15,8 +15,13 @@ function EditCity() {
   ];
 
   const [items, setItems] = useState([]);
-  axios.get("http://localhost:4000/cities/").then((res) => setItems(res.data));
+  useEffect(() => {
 
+  axios.get("http://localhost:4000/cities/")
+    .then((res) => setItems(res.data));
+      
+},[])
+  console.log(items)
   const imageRef = useRef();
   const cityRef = useRef();
   const countryRef = useRef();

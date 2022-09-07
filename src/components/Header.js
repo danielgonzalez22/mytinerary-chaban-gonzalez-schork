@@ -11,6 +11,7 @@ function Header() {
           <LinkRouter to='/' className="navLink">Home</LinkRouter>
           <LinkRouter to='/Cities' className="navLink">Cities</LinkRouter>
           <LinkRouter to='/NewCity' className="navLink">NewCity</LinkRouter>
+          <LinkRouter to='/EditCity' className="navLink">EditCity</LinkRouter>
         </nav>
       </div>
       <div className="accounts">
