@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { Link as LinkRouter } from 'react-router-dom'
 import Arrow from "./Arrow"
 import "../styles/Carousel.css"
 
@@ -8,13 +9,15 @@ function Carousel(props) {
   const [end, setEnd] = useState(start + range)
   const [intervalId, setIntervalId] = useState()
   const citiesLimit = 12
-  const items = (props.data).slice(0,(citiesLimit))
+  const items = (props.data).slice(0, (citiesLimit))
 
   const itemView = (item) => (
-    <div className="item" key={item.city}>
-      <img src={item.photo} alt={item.city} className="image-style" />
-      <p className="title-city">{item.city}</p>
-    </div>
+    <LinkRouter to={`/City/${item._id}`} style={{color:'inherit', textDecoration: 'inherit'}}>
+      <div className="item" key={item.city}>
+        <img src={item.photo} alt={item.city} className="image-style" />
+        <p className="title-city">{item.city}</p>
+      </div>
+    </LinkRouter>
   )
 
   useEffect(() => {
@@ -51,6 +54,7 @@ function Carousel(props) {
 
   return (
     <>
+
       <div className="subtitle">
         <img src="/img/gummy-polaroid.svg" alt="cam-carousel" className='cam-carousel' />
         <h2 className="popular-subtitle">{props.title}</h2>
@@ -64,6 +68,7 @@ function Carousel(props) {
         <div className="carousel-buttons">
         </div>
       </div>
+
     </>
   )
 }
