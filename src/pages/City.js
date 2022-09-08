@@ -5,6 +5,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Itinerary from "../components/Itinerary/Itinerary"
 
+
 export default function City() {
   const [city, setCity] = useState({})
   const [itineraries, setItineraries] = useState([])
