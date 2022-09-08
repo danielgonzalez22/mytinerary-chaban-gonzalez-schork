@@ -1,6 +1,6 @@
 import '../styles/NewCity.css';
 import WebsiteLayout from '../layouts/WebsiteLayout';
-import Input from '../components/Input';
+// import Input from '../components/Input';
 import React, { useState, useRef } from 'react'
 import axios from 'axios'
 
