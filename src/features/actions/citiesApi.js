@@ -8,7 +8,7 @@ export const citiesAPI = createApi({
     }),
     endpoints: (builder) => ({
         getAllCities: builder.query({
-            query: (search) => `/cities/?city=${search}`
+            query: () => `/cities`
         }),
         postOneCity: builder.mutation({
             query: (data) => ({
