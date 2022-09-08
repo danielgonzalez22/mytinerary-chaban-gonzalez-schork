@@ -5,7 +5,6 @@ import axios from "axios";
 import React, { useState, useRef, useEffect } from "react";
 
 function EditCity() {
-
   const selectedRef = useRef()
   const imageRef = useRef();
   const cityRef = useRef();
@@ -13,20 +12,18 @@ function EditCity() {
   const descriptionRef = useRef();
   const populationRef = useRef();
   const foundationRef = useRef();
-
-
+  const [cityId, setCityId] = useState()
   const [items, setItems] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:4000/cities/")
       .then((res) => setItems(res.data));
-      loadForm()
-  }, [])
+  }, [cityId])
 
   
   const loadForm = () => {
-    let city = items.filter(item => item.city === selectedRef.current.value)
-    console.log(city)
-    imageRef.current.value = "sdsad"
+    let city = items.find(item => item.city === selectedRef.current.value)
+    setCityId(city._id)
+    imageRef.current.value = city.photo
     cityRef.current.value = city.city
     countryRef.current.value = city.country
     descriptionRef.current.value = city.description
@@ -35,18 +32,23 @@ function EditCity() {
   }
   
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(selectedRef.current.value);
-    console.log(imageRef.current.value);
-    console.log(cityRef.current.value);
-    console.log(countryRef.current.value);
-    console.log(descriptionRef.current.value);
-    console.log(populationRef.current.value);
-    console.log(foundationRef.current.value);
+    const newCity = {
+      city: cityRef.current.value,
+      country: countryRef.current.value,
+      photo: imageRef.current.value,
+      population: populationRef.current.value,
+      foundation: foundationRef.current.value,
+      description: descriptionRef.current.value,
+    }
+    await axios.patch(`http://localhost:4000/cities/${cityId}`, newCity)
   };
   const optionView = (option) => (
+    <>
+    <option value="" disabled selected hidden>Select a city...</option>
     <option className="OptionSelect">{option.city}</option>
+    </>
   );
   return (
     <WebsiteLayout>
@@ -57,7 +59,7 @@ function EditCity() {
             Edit A<span className="my-style"> City</span>!
           </h1>
         </div>
-        <select className="EditSelect" ref={selectedRef}>{items?.map(optionView)}</select>
+        <select onChange={loadForm} className="EditSelect"  ref={selectedRef}>{items?.map(optionView)}</select>
         <div className="FormImgContainer">
           <div className="MainNewCity">
             <form className="form" onSubmit={handleSubmit}>
