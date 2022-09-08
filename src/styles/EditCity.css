@@ -14,3 +14,31 @@
         width: 60vw;
     }
   }
+  .EditSelect{
+    margin: 8px; 
+     padding: 4px;
+    width: 28vw;
+    background-color: rgba(95, 158, 160, 0);
+    border: 3px solid rgba(218, 186, 141, 0.535);
+    border-radius: 8px;
+    font-size: large;
+    font-style: oblique;
+}
+@media (max-width: 425px) {
+    .EditSelect{
+        height: 4vh;
+        width: 215px;
+    }
+}
+@media (max-width: 375px) {
+    .EditSelect{
+        height: 4vh;
+        width: 196px;
+    }
+}
+  @media (max-width: 320px) {
+    .EditSelect{
+        height: 4vh;
+        width: 185px;
+    }
+}
