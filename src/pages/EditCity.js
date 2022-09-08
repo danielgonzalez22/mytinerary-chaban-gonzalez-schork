@@ -2,34 +2,42 @@ import "../styles/EditCity.css";
 import WebsiteLayout from "../layouts/WebsiteLayout";
 import Input from "../components/Input";
 import axios from "axios";
-import React, { useState, useRef,useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 function EditCity() {
-  const model = [
-    "Image URL",
-    "City Name",
-    "Country",
-    "Description",
-    "Population",
-    "Foundation Year",
-  ];
 
-  const [items, setItems] = useState([]);
-  useEffect(() => {
-
-  axios.get("http://localhost:4000/cities/")
-    .then((res) => setItems(res.data));
-      
-},[])
-  console.log(items)
+  const selectedRef = useRef()
   const imageRef = useRef();
   const cityRef = useRef();
   const countryRef = useRef();
   const descriptionRef = useRef();
   const populationRef = useRef();
   const foundationRef = useRef();
+
+
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost:4000/cities/")
+      .then((res) => setItems(res.data));
+      loadForm()
+  }, [])
+
+  
+  const loadForm = () => {
+    let city = items.filter(item => item.city === selectedRef.current.value)
+    console.log(city)
+    imageRef.current.value = "sdsad"
+    cityRef.current.value = city.city
+    countryRef.current.value = city.country
+    descriptionRef.current.value = city.description
+    populationRef.current.value = city.population
+    foundationRef.current.value = city.foundation
+  }
+  
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(selectedRef.current.value);
     console.log(imageRef.current.value);
     console.log(cityRef.current.value);
     console.log(countryRef.current.value);
@@ -49,54 +57,15 @@ function EditCity() {
             Edit A<span className="my-style"> City</span>!
           </h1>
         </div>
-        <select className="EditSelect">{items?.map(optionView)}</select>
+        <select className="EditSelect" ref={selectedRef}>{items?.map(optionView)}</select>
         <div className="FormImgContainer">
           <div className="MainNewCity">
-            {/* <Input /> */}
-            <form className="form">
-              <input
-                type="text"
-                className="input"
-                placeholder="City"
-                required
-                name="city"
-                ref={cityRef}
-              />
-              <input
-                type="text"
-                className="input"
-                placeholder="Country"
-                required
-                name="country"
-                ref={countryRef}
-              />
-
-              <input
-                type="text"
-                className="input"
-                placeholder="PhotoURL"
-                required
-                name="photo"
-                ref={imageRef}
-              />
-
-              <input
-                type="text"
-                className="input"
-                placeholder="Population"
-                required
-                name="population"
-                ref={populationRef}
-              />
-
-              <input
-                type="text"
-                className="input"
-                placeholder="Foundation"
-                required
-                name="foundation"
-                ref={foundationRef}
-              />
+            <form className="form" onSubmit={handleSubmit}>
+              <Input text="City" reference={cityRef}></Input>
+              <Input text="Country" reference={countryRef}></Input>
+              <Input text="PhotoURL" reference={imageRef}></Input>
+              <Input text="Population" reference={populationRef}></Input>
+              <Input text="Foundation" reference={foundationRef}></Input>
               <textarea
                 type="text"
                 className="input"
@@ -105,7 +74,6 @@ function EditCity() {
                 name="description"
                 ref={descriptionRef}
               />
-
               <button className="welcomePage-button">Submit</button>
             </form>
           </div>
