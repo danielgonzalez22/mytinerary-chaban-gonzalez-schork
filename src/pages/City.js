@@ -20,16 +20,16 @@ export default function City() {
         <div className='city-container'>
           <img src={city.photo} alt='city-img'></img>
           <div className='city-details'>
-            <ul>
-              <li>Name:{city.city}</li>
-              <li>Country:{city.country}</li>
-              <li>Population:{city.population}</li>
-              <li>Foundation:{city.foundation}</li>
-            </ul>
-            <h3>Description</h3>
+            <h3 className='h3-city'>Description</h3>
             <p className='description-p'>{city.description}</p>
+            <ul>
+              <li className='tittle-city'>{city.city}</li>
+              <li className='p-city'>Country:{city.country}</li>
+              <li className='p-city'>Population:{city.population}</li>
+              <li className='p-city'>Foundation:{city.foundation}</li>
+            </ul>
           </div>
-          <button onClick={() => navigate(-1)}>Go back</button>
+          <button className='bcity' onClick={() => navigate(-1)}>Go back</button>
         </div>
       </div>
     </WebsiteLayout>
