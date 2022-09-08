@@ -2,17 +2,8 @@ import '../styles/Cities.css';
 import WebsiteLayout from '../layouts/WebsiteLayout';
 import CityCard from '../components/CityCard';
 import { citiesAPI } from '../features/actions/citiesApi'
-// import { useEffect, useState } from 'react';
-// import axios from "axios";
 
 function Cities() {
-
-  // const [items, setItems] = useState([])
-  // useEffect(()=>{
-  //     axios.get("http://localhost:4000/cities/")
-  //     .then(res => setItems(res.data))
-  // },[])
-
 
     let { data: items,
       isLoading,
@@ -28,7 +19,6 @@ function Cities() {
       console.log("3");
       items = [];
     }
-
 
   const itemView = (item) => (
     <CityCard image={item.photo} title={item.city} id={item._id}></CityCard>

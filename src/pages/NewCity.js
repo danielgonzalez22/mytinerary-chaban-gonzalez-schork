@@ -1,22 +1,10 @@
 import '../styles/NewCity.css';
 import WebsiteLayout from '../layouts/WebsiteLayout';
-// import Input from '../components/Input';
-import React, {useRef } from 'react'
+import Input from '../components/Input';
+import React, { useRef } from 'react'
 import axios from 'axios'
 
 function NewCity() {
-
-  // const initialValor = {
-  //   city: '',
-  //   country: '',
-  //   photo: '',
-  //   population: '',
-  //   foundation: '',
-  //   description: '',
-  // }
-
-  // const [city, setCity] = useState(initialValor)
-
   const name = useRef()
   const country = useRef()
   const photo = useRef()
@@ -39,7 +27,6 @@ function NewCity() {
     console.log(country
     )
   }
-
   return (
     <WebsiteLayout>
       <div className="newcity-body">
@@ -50,37 +37,11 @@ function NewCity() {
         <div className='FormImgContainer'>
           <div className="MainNewCity">
             <form className='form' onSubmit={captureData}>
-              <input
-                type="text"
-                className="input"
-                placeholder='City'
-                required
-                name="city"
-                ref={name} />
-              <input type="text"
-                className="input"
-                placeholder='Country'
-                required
-                name="country"
-                ref={country} />
-              <input type="text"
-                className="input"
-                placeholder='PhotoURL'
-                required
-                name="photo"
-                ref={photo} />
-              <input type="text"
-                className="input"
-                placeholder='Population'
-                required
-                name="population"
-                ref={population} />
-              <input type="text"
-                className="input"
-                placeholder='Foundation'
-                required
-                name="foundation"
-                ref={foundation} />
+            <Input text="City" reference={name}></Input>
+              <Input text="Country" reference={country}></Input>
+              <Input text="PhotoURL" reference={photo}></Input>
+              <Input text="Population" reference={population}></Input>
+              <Input text="Foundation" reference={foundation}></Input>
               <textarea type="text"
                 className="input"
                 placeholder='Description'
