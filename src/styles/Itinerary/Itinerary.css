@@ -11,7 +11,7 @@
   .main-it {
     border: 1px solid black;
     margin-inline: 20px;
-    min-width: 60%;
+    width: 60%;
     padding-inline:20px ;
     border-radius: 10px;
     display: flex;
