@@ -1,13 +1,21 @@
-import "../../styles/itinerary/Activities.css"
-import { useGetItineraryActivitiesQuery } from "../../features/actions/activitiesAPI"
+//import "../../styles/itinerary/Activities.css"
+import { useGetItineraryActivitiesQuery } from "../../features/actions/activitiesApi"
 
 export default function Activities(props) {
 
     let id = props.itinerary
-    
+
     let {
         data: activities,
-        }= useGetItineraryActivitiesQuery(id)
+        isLoading,
+        isSuccess,
+    } = useGetItineraryActivitiesQuery(id)
+
+    if (isLoading) {
+        activities = []
+    } else if (isSuccess) {
+        activities = activities.response
+    }
 
     const viewActivity = (activity) => {
         return (
@@ -18,9 +26,10 @@ export default function Activities(props) {
     }
     return (
         <>
-        <div className="activities-container">
+            {activities ?
+                <div className="activities-container">
                     {activities?.response?.map(viewActivity)}
-        </div>
+                </div> : null}
         </>
     )
 }
