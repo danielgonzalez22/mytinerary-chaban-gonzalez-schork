@@ -3,6 +3,7 @@ import  {activitiesAPI} from "./actions/activitiesApi"
 import {citiesAPI} from "./actions/citiesApi"
 import {commentsAPI} from "./actions/commentsApi"
 import {itinerariesAPI} from "./actions/itinerariesApi"
+import carouselAPI from "./actions/carouselApi"
 
 
 export const store = configureStore({
@@ -13,6 +14,8 @@ export const store = configureStore({
         [itinerariesAPI.reducerPath]: itinerariesAPI.reducer,    
         comments: commentsAPI,
         [commentsAPI.reducerPath]: commentsAPI.reducer,
+        carousel : carouselAPI,
+        [carouselAPI.reducerPath] : carouselAPI.reducer
         },
         activities: activitiesAPI,
         [activitiesAPI.reducerPath]: activitiesAPI.reducer,

@@ -29,7 +29,7 @@ export default function City() {
     <WebsiteLayout>
       <div className="city-main">
         <div className='city-container'>
-          <img src={city.photo} alt='city-img'></img>
+          <img className='city-img' src={city.photo} alt='city-img'></img>
           <div className='city-details'>
             <ul>
               <li>Name:{city.city}</li>
@@ -43,7 +43,7 @@ export default function City() {
           <div>
            {getItineraries().map(item=>(<Itinerary data={item}/>))}           
           </div>
-          <button onClick={() => navigate(-1)}>Go back</button>
+          <button className="goBack" onClick={() => navigate(-1)}>Go back</button>
         </div>
       
     </div >

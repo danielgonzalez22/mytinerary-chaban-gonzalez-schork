@@ -62,7 +62,7 @@ function Carousel(props) {
       <div className="cards-container">
         <Arrow icon={"/img/caret-left.svg"} click={previous} />
         <div className="slide">
-          {items.slice(start, end).map(itemView)}
+          {items?.slice(start, end).map(itemView)}
         </div>
         <Arrow icon={"/img/caret-right.svg"} click={next} />
         <div className="carousel-buttons">

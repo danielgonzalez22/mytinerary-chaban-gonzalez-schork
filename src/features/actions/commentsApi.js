@@ -1,13 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
-import apiurl from "../../api";
 
 export const commentsAPI = createApi({
     reducerPath: "commentsAPI",
     baseQuery: fetchBaseQuery({
-        baseUrl: apiurl
+        baseUrl: "http://localhost:4000"
     }),
     endpoints: (builder) => ({
-        //Por ahora no.
         createComment: builder.mutation({
             query: (comment) => ({
                 url: `/comments`,
@@ -15,11 +13,6 @@ export const commentsAPI = createApi({
                 body: comment
             })
         }),
-
-        // getAllComments: builder.query({
-        //     query: () => `/comments/`
-        //     }),
-        //No es necesario de momento.
         getComment: builder.query({
             query: (id) => `/comments/${id}`
         }),
