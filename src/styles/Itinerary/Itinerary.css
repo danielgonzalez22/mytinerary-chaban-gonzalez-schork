@@ -1,0 +1,28 @@
+.img-user{
+    height: 10vh;
+    width: 10vw;
+}
+.name-it{
+    margin-top: 10px;
+    font-size: 4vh;
+}
+.main-it{
+    display: flex;
+    justify-content: space-between;
+}
+@media (max-width: 1000px){
+    .name-it{
+        margin-top: 10px;
+        font-size: 2vh;
+    }
+}
+@media (max-width: 500px){
+    .name-it{
+        margin-top: 10px;
+        font-size: 3vh;
+    }
+    .main-it{
+        display: flex;
+        flex-direction: column;
+    }
+}
