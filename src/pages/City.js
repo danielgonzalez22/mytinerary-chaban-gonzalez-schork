@@ -40,6 +40,9 @@ export default function City() {
               <li className='p-city'>Foundation:{city.foundation}</li>
             </ul>
           </div>
+          <div>
+           {getItineraries().map(item=>(<Itinerary data={item}/>))}           
+          </div>
           <button className='bcity' onClick={() => navigate(-1)}>Go back</button>
         </div>
       </div>
