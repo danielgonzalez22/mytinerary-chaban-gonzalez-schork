@@ -1,8 +1,9 @@
 import '../styles/NewCity.css';
 import WebsiteLayout from '../layouts/WebsiteLayout';
 import Input from '../components/Input';
-import React, { useRef } from 'react'
+import React, { useRef , useState } from 'react'
 import axios from 'axios'
+import Modal from '../components/Modal'
 
 function NewCity() {
   const name = useRef()
@@ -27,8 +28,17 @@ function NewCity() {
     console.log(country
     )
   }
+
+  const[isOpen,setIsOpen] = useState(false);
+
+
+const openModal = () => setIsOpen(true);
+
+const closeModal = () => setIsOpen(false);
+
   return (
     <WebsiteLayout>
+    <Modal isOpen={isOpen} closeModal={closeModal} text="City Added Succesfully!"/>
       <div className="newcity-body">
         <div className='tittle-form-page'>
           <img src="/img/gummy-city.svg" alt="icon" className='city-form' />
@@ -48,7 +58,10 @@ function NewCity() {
                 required
                 name="description"
                 ref={description} />
-              <button className='welcomePage-button'>Submit</button>
+              <button onClick={openModal} className='welcomePage-button'>Submit</button>
+
+              
+
             </form>
           </div>
         </div>
