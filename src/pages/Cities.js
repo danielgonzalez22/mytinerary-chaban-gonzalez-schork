@@ -1,31 +1,33 @@
 import '../styles/Cities.css';
 import WebsiteLayout from '../layouts/WebsiteLayout';
 import CityCard from '../components/CityCard';
+import { citiesAPI } from '../features/actions/citiesApi'
+
 function Cities() {
 
-  const items = [
-    { url: "/img/cities/ciudad-del-cabo.jpg", title: "Cape Town" },
-    { url: "/img/cities/dubai.jpg", title: "Dubai" },
-    { url: "/img/cities/estambul.jpg", title: "Istambul" },
-    { url: "/img/cities/guiza.jpg", title: "Gizah" },
-    { url: "/img/cities/helsinki.jpg", title: "Helsinki" },
-    { url: "/img/cities/kyoto.jpg", title: "Kyoto" },
-    { url: "/img/cities/oaxaca.jpg", title: "Oaxaca" },
-    { url: "/img/cities/porto.jpg", title: "Porto" },
-    { url: "/img/cities/reykjavik.jpg", title: "Reykjavik" },
-    { url: "/img/cities/sidney.jpg", title: "Sidney" },
-    { url: "/img/cities/udaipur.jpg", title: "Udaipur" },
-    { url: "/img/cities/venecia.jpg", title: "Venice" }
-]
+    let { data: items,
+      isLoading,
+      isSuccess,
+      isFailed, } = citiesAPI.useGetAllCitiesQuery()
+    if (isLoading) {
+      items = []
+      console.log("Loading");
+    } else if (isSuccess) {
+      console.log("Load succesfully");
 
-const itemView = (item) => (
-    <CityCard image={item.url} title={item.title}></CityCard>
-)
+    } else if (isFailed) {
+      console.log("3");
+      items = [];
+    }
+
+  const itemView = (item) => (
+    <CityCard image={item.photo} title={item.city} id={item._id}></CityCard>
+  )
   return (
     <WebsiteLayout>
       <div className='cities-main'>
         <div className="cards-cities-container">
-        {items.map(itemView)}
+          {items.map(itemView)}
         </div>
       </div>
     </WebsiteLayout>

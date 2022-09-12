@@ -2,7 +2,7 @@ import '../styles/Input.css';
 function Input(props) {
   return (
     <div>
-      <input type="text" placeholder={props.text} className="input" ref={props.reference}></input>
+      <input type={"text"} placeholder={props.text} className="input" ref={props.reference} required></input>
     </div>
   );
 }
