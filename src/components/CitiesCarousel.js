@@ -1,12 +1,12 @@
 import Carousel from "./Carousel";
-import { useCarouselQuery } from '../features/actions/carouselApi'
+import { useGetAllCitiesQuery } from '../features/actions/citiesApi'
 
 function CitiesCarousel() {
 
   let { data: items,
     isLoading,
     isSuccess,
-    isFailed, } = useCarouselQuery()
+    isFailed, } = useGetAllCitiesQuery()
   if (isLoading) {
     items = []
     console.log("Loading");
