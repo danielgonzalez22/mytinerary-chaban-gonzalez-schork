@@ -1,9 +1,7 @@
 // import Activities from "./Activities"
 // import Comments from "./Comments"
-import Comments from "./Comment"
+// import Comments from "./Comment"
 // import Activities from "./Activity"
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import '../../styles/Itinerary/Itinerary.css'
 export default function Itinerary(props) {
 

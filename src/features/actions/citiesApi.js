@@ -10,7 +10,11 @@ export const citiesAPI = createApi({
 
   endpoints: (builder) => ({
     getAllCities: builder.query({
-      query: () => `/cities`
+      query: (city) => ({
+        url: `/cities/?city=${city}`,
+        method: "GET",
+      }),
+      transformResponse: (response) => response.response
     }),
 
     postOneCity: builder.mutation({
@@ -18,7 +22,6 @@ export const citiesAPI = createApi({
         url: "/cities/",
         method: "POST",
         body: data,
-        responseHandler: (res) => res.body.response
       })
     }),
 
@@ -27,7 +30,6 @@ export const citiesAPI = createApi({
         url: `/cities/${id}`,
         method: "PUT",
         body: data,
-        responseHandler: (res) => res.body.response
       })
     }),
 
