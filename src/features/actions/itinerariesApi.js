@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
-
 export const itinerariesAPI = createApi({
   reducerPath: "itinerariesAPI",
   baseQuery: fetchBaseQuery({
@@ -10,10 +9,18 @@ export const itinerariesAPI = createApi({
       query: () => `/itineraries/`,
     }),
     getCityItineraries: builder.query({
-      query: (id) => `/itineraries/?city=${id}`,
+      query: (id) => ({
+        url: `/itineraries/?city=${id}`,
+        method: "GET",
+      }),
+      transformResponse: (response) => response.response
     }),
     getItinerariesUsers: builder.query({
-      query: (id) => `/itineraries/?user=${id}`,
+      query: (id) => ({
+        url: `/itineraries/?user=${id}`,
+        method: "GET",
+      }),
+      transformResponse: (response) => response.response
     }),
     modifyItinerary: builder.mutation({
       query: (id, data) => ({
@@ -30,7 +37,6 @@ export const itinerariesAPI = createApi({
     }),
   }),
 });
-
 export const {
   useGetAllItinerariesQuery,
   useGetItinerariesUsersQuery,

@@ -1,0 +1,22 @@
+/* .activities-container {} */
+
+.activities-item {
+    box-shadow: 0 0 0.9375em rgba(0, 0, 0, 0.219);
+    min-width: 65vw;
+    min-height: 400px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    padding: 7px;
+}
+
+.activities-item-name {
+position: absolute;
+top:50%;
+left:50%;
+transform: translate(-50%, -50%);
+font-size: 2rem;
+font-weight: bold;
+color:white;
+
+}

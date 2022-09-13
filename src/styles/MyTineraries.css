@@ -1,0 +1,11 @@
+.container-itineraries{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    color: #444;
+    min-height:100vh;
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
