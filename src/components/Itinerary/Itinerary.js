@@ -7,41 +7,28 @@ import axios from 'axios'
 import '../../styles/Itinerary/Itinerary.css'
 export default function Itinerary(props) {
 
-  const itinerary = props.data
-  const [users, setUsers] = useState([])
-
-  useEffect(() => {
-    axios.get("http://localhost:4000/users/")
-      .then(res => setUsers(res.data.response))
-    console.log(users)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-  //const getUser = () => {
-  //let userName = itinerary.user
-  //let user = users.find(e => e.name == "Lionel")
-  //return user
-  //}
-  return (
+  const item = props.items
+   return (
     <>
-      <p className="name-it">{itinerary.name}</p>
+      <p className="name-it">{item.name}</p>
       <div className="container-it">
         <div className="user-it">
           <img src="https://www.cariverplate.com.ar/imagenes/jugadores/2022-08/1498-24-perez-imagenprincipal.png" alt="" className="img-user" />
-          <p>Enzo Perez</p>
+          <p>`${item.user.name} ${item.user.lastName}`</p>
           <p>enzo123@gmail.com</p>
           <p>Argentina</p>
         </div>
         <div className="main-it">
           <div className="text-it">
-            <p>{itinerary.likes} Likes</p>
-            <p className="text-duration">Duration: {itinerary.duration}hs</p>
+            <p>{item.likes} Likes</p>
+            <p className="text-duration">Duration: {item.duration}hs</p>
           </div>
-          <p className="price-it">Price: ${itinerary.price}</p>
+          <p className="price-it">Price: ${item.price}</p>
           <p className="hashtags">
-            {itinerary.tags.map(tag => tag)}
+            {item.tags.map(tag => tag)}
           </p>
         </div>
-        {<Comments itinerary={itinerary._id} />}
+        {/* {<Comments itinerary={itinerary._id} />} */}
       </div>
     {/* {<Activities itinerary={itinerary._id} />} */}
     </>
