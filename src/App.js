@@ -1,3 +1,4 @@
+import MyTineraries from "./pages/MyTineraries"
 import WelcomePage from "./pages/WelcomePage"
 import Cities from "./pages/Cities"
 import NewCity from "./pages/NewCity"
@@ -6,6 +7,9 @@ import NotFound from "./pages/NotFound"
 import EditCity from "./pages/EditCity"
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import React from "react";
+
+
+
 function App() {
   return (
    
@@ -17,7 +21,9 @@ function App() {
         <Route path='/NewCity' element={<NewCity/>}></Route>
         <Route path='/City/:id' element={<City/>}></Route>
         <Route path='/EditCity' element={<EditCity/>}></Route>
+        <Route path='/MyTineraries' element={<MyTineraries/>}></Route>
         <Route path='/*' element={<NotFound/>}></Route>
+        
          </Routes>
     </BrowserRouter>
   )
