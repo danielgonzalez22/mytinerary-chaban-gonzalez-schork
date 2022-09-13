@@ -1,23 +1,12 @@
 import Carousel from "./Carousel";
-import { useCarouselQuery } from '../features/actions/carouselApi'
+import { useGetAllCitiesQuery } from '../features/actions/citiesApi'
 
 function CitiesCarousel() {
 
-  let { data: items,
-    isLoading,
-    isSuccess,
-    isFailed, } = useCarouselQuery()
-  if (isLoading) {
-    items = []
-    console.log("Loading");
-  } else if (isSuccess) {
-    console.log("Load succesfully");
-  } else if (isFailed) {
-    console.log("3");
-    items = [];
-  }
+  let { data: items} = useGetAllCitiesQuery("")
+  
   return (
-    <Carousel data={items} range={4} title="Popular MyTineraries!" />
+    <Carousel cities={items?.slice(0,12)} range={4} title="Popular MyTineraries!" />
   )
 }
 export default CitiesCarousel

@@ -84,7 +84,7 @@ const closeModal = () => setIsOpen(false);
             Edit A<span className="my-style"> City</span>!
           </h1>
         </div>
-        <select onChange={loadForm} className="EditSelect"  ref={selectedRef}>{items?.map(optionView)}</select>
+        <select onChange={loadForm} className="EditSelect"  ref={selectedRef}>{items.response?.map(optionView)}</select>
         <div className="FormImgContainer">
           <div className="MainNewCity">
             <form className="form" onSubmit={handleSubmit}>
