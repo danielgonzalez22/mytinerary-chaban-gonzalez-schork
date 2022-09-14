@@ -34,7 +34,11 @@ export const citiesAPI = createApi({
     }),
 
     getOneCity: builder.query({
-      query: (id) => `/cities/${id}`
+      query: (id) => ({
+        url: `/cities/${id}`,
+        method: "GET",
+      }),
+      transformResponse: (response) => response.response
     })
   })
 })
