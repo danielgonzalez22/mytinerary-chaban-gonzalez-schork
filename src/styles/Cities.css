@@ -2,13 +2,22 @@ body{
     background-color: rgb(247, 235, 209);
 }
 .cities-main{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    display: flex;
+    flex-flow: column nowrap;
     min-height: 100vh;
 }
 .cards-cities-container{
+    margin-top: 2vh;
     min-width: 60%;
     min-height: 100vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+.cities-search{
+    align-self: center;
 }
