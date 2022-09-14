@@ -16,22 +16,26 @@ const closeModal = () => setIsOpen(false);
 
   return (
     
-   <>      <Modal isOpen={isOpen} closeModal={closeModal} text="City Edited Succesfully!"/>
+   <>      <Modal isOpen={isOpen} 
+   closeModal={closeModal} text="Account Created Succesfully!"/>
+    <div className="SignUp-main">
+        <div className='SignUp-container'>
       <div className="SignUp-body">
-        <div className="tittle-form-page">
-          <img src="https://img.icons8.com/external-bearicons-outline-color-bearicons/344/external-sign-up-call-to-action-bearicons-outline-color-bearicons-2.png" alt="icon" className="city-form" />
-          <h1 className="title-form">
+        <div className="SignUp-img">
+          <img src="https://img.icons8.com/external-bearicons-outline-color-bearicons/344/external-sign-up-call-to-action-bearicons-outline-color-bearicons-2.png" alt="icon" className='Sign-img' />
+          <h1 className="h1-form">
             SIGN UP<span className="my-style"> </span>
           </h1>
         </div>
-       
+        </div>
+        </div>
 
       { role == "Admin"?
             <>
-            <h1 className="title-form">
+            <h1 className="h1-form">
             ADMIN <span className="my-style"> </span>
             </h1>
-              <form className="form" >
+              <form className="SignUp-form" >
               <Input text="Name"></Input>
               <Input text="Last Name" ></Input>
               <Input text="URL Photo "></Input>
@@ -42,7 +46,7 @@ const closeModal = () => setIsOpen(false);
             </form>
       </>
             :
-            <form className="form" >
+            <form className="SignUp-form" >
               <Input text="Name"></Input>
               <Input text="Last Name" ></Input>
               <Input text="URL Photo "></Input>
@@ -55,8 +59,8 @@ const closeModal = () => setIsOpen(false);
               {/* <a href='_blank'>You have an account?</a>
                 <a href='#'>Please sign in</a>
                 <button  >You have an account?</button> */}
-                <LinkRouter to='/' className="navLink">You have an account?</LinkRouter>
-                <LinkRouter to='/' className="navLink">Please sign in</LinkRouter>
+                <LinkRouter to='/' className="SingUp1-button">You have an account?</LinkRouter>
+                <LinkRouter to='/' className="SingUp1-button">Please sign in</LinkRouter>
             </form>
       }
          </div>
