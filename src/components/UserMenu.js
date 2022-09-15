@@ -8,11 +8,7 @@ const pages = [
 
     },
     {name:"Login",
-<<<<<<< Updated upstream
-    to: "",
-=======
     to: "/Login",
->>>>>>> Stashed changes
 
     }
 ]
