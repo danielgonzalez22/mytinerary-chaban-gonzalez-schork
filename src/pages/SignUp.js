@@ -1,7 +1,7 @@
 import '../styles/SignUp.css'
 import WebsiteLayout from '../layouts/WebsiteLayout'
 import React from 'react'
-import Form from '../components/Form'
+import SignUpForm from '../components/SignUpForm'
 export default function SignUp() {
 
 const user = {
@@ -9,13 +9,14 @@ const user = {
     lastName:"wayne",
     image:"http://www.fotoimg.com/ee",
     email: "brucewayne@gmail.com",
-    password:"1234bati"
+    password:"1234bati",
+    role:"admin"
 }
   return (
     <div>
 
 <WebsiteLayout>
-    <Form user={user}></Form>
+    <SignUpForm user={user}></SignUpForm>
 </WebsiteLayout>
 
     </div>

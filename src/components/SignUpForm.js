@@ -56,9 +56,7 @@ const closeModal = () => setIsOpen(false);
               <button onClick={openModal} className="SignUp-button" >Create Account</button>
               <button onClick={openModal} className="SignUp-button" >Google</button>
               </div>
-              {/* <a href='_blank'>You have an account?</a>
-                <a href='#'>Please sign in</a>
-                <button  >You have an account?</button> */}
+           
                 <LinkRouter to='/' className="SingUp1-button">You have an account?</LinkRouter>
                 <LinkRouter to='/' className="SingUp1-button">Please sign in</LinkRouter>
             </form>
