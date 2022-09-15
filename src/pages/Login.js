@@ -1,6 +1,6 @@
 import React from 'react'
 import WebsiteLayout from '../layouts/WebsiteLayout'
-import SignIncomponent from '../components/SignIncomponent'
+import LoginForm from '../components/LoginForm'
 
 export default function Login(){
 
@@ -16,7 +16,7 @@ const user = {
     <div>
 
     <WebsiteLayout>
-        <SignIncomponent user={user}></SignIncomponent>
+        <LoginForm user={user}></LoginForm>
     </WebsiteLayout>
     
         </div>
