@@ -7,7 +7,7 @@ import NotFound from "./pages/NotFound"
 import EditCity from "./pages/EditCity"
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import React from "react";
-
+import SignUp from "./pages/SignUp"
 
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
         <Route path='/MyTineraries' element={<MyTineraries/>}></Route>
 
         <Route path='/*' element={<NotFound/>}></Route>
-        
+        <Route path='/SignUp' element={<SignUp/>}></Route>
          </Routes>
     </BrowserRouter>
   )
