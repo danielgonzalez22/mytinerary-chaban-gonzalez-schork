@@ -4,11 +4,11 @@ import { Link as LinkRouter } from 'react-router-dom'
 
 const pages = [
     {name:"Sign Up",
-    to: "./",
+    to: "/SignUp",
 
     },
     {name:"Login",
-    to: "",
+    to: "/*",
 
     }
 ]
