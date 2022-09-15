@@ -9,7 +9,7 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import React from "react";
 import SignUp from "./pages/SignUp"
 import Login from "./pages/Login"
-
+import NewItinerary from "./pages/NewItinerary"
 
 function App() {
   return (
@@ -27,6 +27,9 @@ function App() {
         <Route path='/*' element={<NotFound/>}></Route>
         <Route path='/SignUp' element={<SignUp/>}></Route>
         <Route path='/Login' element={<Login/>}></Route>
+        <Route path='/NewItinerary' element={<NewItinerary/>}></Route>
+
+
          </Routes>
     </BrowserRouter>
   )
