@@ -3,8 +3,9 @@ import '../styles/SignUp.css';
 import Input from "../components/Input";
 import { useUserSignUpMutation } from "../features/actions/usersApi";
 import { useState, useEffect } from "react"
-import SignUpAlert from "../components/SignUpAlert"
+import Alert from "../components/Alert"
 import WebsiteLayout from "../layouts/WebsiteLayout";
+import SignUpForm from "../components/SignUpForm";
 
 function SignUp() {
   const inputArray =[
@@ -67,11 +68,12 @@ function SignUp() {
           },5000)
       }
   },[resSignUp, error])
-
+  const role = "Admin"
   return (
         <WebsiteLayout>
       <div className="signup-page-main">
           <Input inputsData={inputArray}  event={signUserForm} classPage="signup" />
+          <SignUpForm role={role}/>
           <GoogleSignUp />
           {showAlert ?
               <Alert res={resSignUp} err={error} />
@@ -91,28 +93,6 @@ export default SignUp
 
 
 
-// import WebsiteLayout from '../layouts/WebsiteLayout'
-// import React from 'react'
-// import Form from '../components/Form'
-// export default function SignUp() {
-
-// const user = {
-//     name : "brucce",
-//     lastName:"wayne",
-//     image:"http://www.fotoimg.com/ee",
-//     email: "brucewayne@gmail.com",
-//     password:"1234bati"
-// }
-//   return (
-//     <div>
-
-// <WebsiteLayout>
-//     <Form user={user}></Form>
-// </WebsiteLayout>
-
-//     </div>
-//   )
-// }
 
 
 
