@@ -7,7 +7,7 @@ const pages = [
     to: "auth/signup",
     },
     {name:"Login",
-    to: "auth/signin",
+    to: "auth/login",
     }
 ]
 const navLinks = (page) => <LinkRouter className='navLink' to={page.to} key= {page.name}> {page.name} </LinkRouter>
