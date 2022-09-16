@@ -8,7 +8,7 @@ export default function Itinerary(props) {
   let { data: comments } = useGetItinerariesCommentQuery(itinerary._id)
   let { data: activities } = useGetItineraryActivitiesQuery(itinerary._id)
   return (
-    <>
+    <div key={itinerary._id}>
       <p className="name-it">{itinerary.name}</p>
       <div className="container-it">
         <div className="user-it">
@@ -25,12 +25,12 @@ export default function Itinerary(props) {
         </div>
       </div>
       <div className="activities-it">
-        {activities ? ((activities.length > 0) ? activities.map(itinerary => <Activity activity={itinerary} />) : <p>No activities here...</p>) : <p>No activities here...</p>}
+        {activities ? ((activities.length > 0) ? activities.map(activity => <Activity activity={activity} />) : <p>No activities here...</p>) : <p>No activities here...</p>}
       </div>
       <div className="comments-it">
-        {comments ? ((comments.length > 0) ? comments.map(itinerary => <Comment comment={itinerary} />) : <p>No comments here...</p>) : <p>No comments here...</p>}
+        {comments ? ((comments.length > 0) ? comments.map(comment => <Comment comment={comment} />) : <p>No comments here...</p>) : <p>No comments here...</p>}
       </div>
-    </>
+    </div>
   )
 }
 
