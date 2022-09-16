@@ -16,28 +16,28 @@ const SignIncomponent = () => {
     
    <>      <Modal isOpen={isOpen} 
    closeModal={closeModal} text="Account Created Succesfully!"/>
-    <div className="SignUp-main">
-        <div className='SignUp-container'>
-      <div className="SignUp-body">
+    <div className="signUp-main">
+        <div className='signUp-container'>
+      <div className="signUp-body">
       
-          <img src="https://img.icons8.com/external-bearicons-outline-color-bearicons/344/external-sign-up-call-to-action-bearicons-outline-color-bearicons-2.png" alt="icon" className='Sign-img' />
+          <img src="https://img.icons8.com/external-bearicons-outline-color-bearicons/344/external-sign-up-call-to-action-bearicons-outline-color-bearicons-2.png" alt="icon" className='sign-img' />
         </div>
         <h1 className="h1-form">
             Login<span className="my-style"> </span>
           </h1>
 
 
-            <form className="SignUp-form" >
+            <form className="signUp-form" >
               <Input text="Email"></Input>
               <Input text="Password" ></Input>
              <div>
 
-              <div className='SignUp-Container Buttons-containerV0FINAL'>
-              <button onClick={openModal} className="SignUp-button" >Login</button>
-              <button onClick={openModal} className="SignUp-button" >Google</button>
+              <div className='signUp-Container Buttons-containerV0FINAL'>
+              <button onClick={openModal} className="signUp-button" >Login</button>
+              <button onClick={openModal} className="signUp-button" >Google</button>
               </div>
               <div className='button-container'>
-                <LinkRouter to='/' className="SingUp1-button">Please, Sign Up!!</LinkRouter>
+                <LinkRouter to='/' className="singUp1-button">Please, Sign Up!!</LinkRouter>
               </div>
              </div>
             </form>
