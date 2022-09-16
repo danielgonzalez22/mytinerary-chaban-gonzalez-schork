@@ -3,6 +3,7 @@ import { activitiesAPI } from "./actions/activitiesApi"
 import { citiesAPI } from "./actions/citiesApi"
 import { commentsAPI } from "./actions/commentsApi"
 import { itinerariesAPI } from "./actions/itinerariesApi"
+import { usersAPI } from "./actions/usersApi"
 
 
 export const store = configureStore({
@@ -17,7 +18,10 @@ export const store = configureStore({
     [commentsAPI.reducerPath]: commentsAPI.reducer,
 
     activities: activitiesAPI,
-    [activitiesAPI.reducerPath]: activitiesAPI.reducer
+    [activitiesAPI.reducerPath]: activitiesAPI.reducer,
+
+    users: usersAPI,
+    [usersAPI.reducerPath]: usersAPI.reducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     inmutableCheck: false,
