@@ -35,6 +35,12 @@
   align-items: center;
   justify-content: center;
 }
+.activities-it{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
 /* @media (max-width: 1000px) {
   .name-it {
