@@ -7,8 +7,8 @@ import {Link as LinkRouter} from 'react-router-dom'
 
 
 
-const Form = (props) => {
-const role = props.user.role
+const SignUpForm = (props) => {
+const role = props.role
 
     const[isOpen,setIsOpen] = useState(false);
 const openModal = () => setIsOpen(true);
@@ -67,13 +67,7 @@ const closeModal = () => setIsOpen(false);
 }
 
 
-
-
-
-
-
-
-export default Form
+export default SignUpForm
 
 
 
