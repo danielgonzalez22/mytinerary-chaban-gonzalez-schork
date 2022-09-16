@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import Modal from './Modal';
 import Input from './Input';
 import '../styles/SignUp.css'
@@ -7,8 +7,6 @@ import { useUserSignUpMutation } from '../features/actions/usersApi'
 
 const Form = (props) => {
   const [postUser, { data: body, error, isSuccess }] = useUserSignUpMutation()
-  const [isOpen, setIsOpen] = useState()
-  //const [success, setSuccess] = useState(false)
   let alertMessage = ""
   if (body?.success) {
     alertMessage = body?.message
@@ -17,27 +15,15 @@ const Form = (props) => {
     alertMessage = error?.data.message
     console.log(isSuccess)
   }
-
-  const role = props.role
-
-  //const openModal = () => setIsOpen(true);
+  const [isOpen, setIsOpen] = useState()
   const closeModal = () => setIsOpen(false);
+  const role = props.role
   const name = useRef()
   const lastName = useRef()
   const country = useRef()
   const photo = useRef()
   const email = useRef()
   const pass = useRef()
-
-  useEffect(() => {
-    if (alertMessage) {
-      setIsOpen(true)
-      setTimeout(() => {
-        setIsOpen(false)
-      }, 5000)
-    }
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [alertMessage])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -53,12 +39,16 @@ const Form = (props) => {
     }
     console.log(newUser)
     postUser(newUser)
-    //setSuccess(true)
+    setIsOpen(true)
+    setTimeout(() => {
+      setIsOpen(false)
+    }, 5000)
   }
+
   return (
     <>
       <Modal isOpen={isOpen}
-        closeModal={closeModal} text={alertMessage} />
+        closeModal={closeModal} text={alertMessage} result={isSuccess} />
       <div className="signUp-main">
         <div className='signUp-container'>
           <div className="signUp-body">
@@ -97,7 +87,7 @@ const Form = (props) => {
                   <button className="signUp-button" >Create Account</button>
 
                 </div>
-                <LinkRouter to='/' className="singUp1-button">You have an account?Please sign in</LinkRouter>
+                <LinkRouter to='/auth/login' className="singUp1-button">Already have an account?Please sign in</LinkRouter>
               </form>
             </>
           }
