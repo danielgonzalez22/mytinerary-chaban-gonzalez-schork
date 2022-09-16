@@ -5,7 +5,7 @@ import SignUpForm from "../components/SignUpForm";
 
 function SignUp() {
 
-  const role = "Admin"
+  const role = "user"
   return (
     <WebsiteLayout>
       <div className="signup-page-main">
