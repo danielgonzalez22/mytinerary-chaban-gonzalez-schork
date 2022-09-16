@@ -56,13 +56,13 @@ useEffect(() => {
       <div className="newcity-body">
         <div className='tittle-form-page'>
           <img src="/img/gummy-city.svg" alt="icon" className='city-form' />
-          <h1 className='title-form'>My <span className='my-style'> Tinerary</span>!</h1>
+          <h1 className='title-form'>New<span className='my-style'> Tinerary</span>!</h1>
         </div>
         <div className='FormImgContainer'>
           <div className="MainNewCity">
             <form className='form' onSubmit={captureData}>
-            <Input text="Name" reference={name}></Input>
             <select onChange={optionView} className="EditSelect"  ref={city}>{items.response?.map(optionView)}</select>
+            <Input text="Name" reference={name}></Input>
               <Input text="Price" reference={price}></Input>
            
              

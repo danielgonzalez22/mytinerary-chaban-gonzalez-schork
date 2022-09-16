@@ -8,6 +8,7 @@ export default function GoogleSignUp() {
   let [newUser, { data: resSignUp, error }] = useUserSignUpMutation()
   const [showAlert, setShowAlert] = useState(false)
 
+
   async function handleCredentialResponse(response) {
     let userObject = jose.decodeJwt(response.credential)
     console.log(userObject)
@@ -51,3 +52,4 @@ export default function GoogleSignUp() {
     </div>
   )
 }
+

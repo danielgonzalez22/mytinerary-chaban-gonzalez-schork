@@ -45,19 +45,19 @@ const Form = (props) => {
     setSuccess(true)
   }
   return (
-    <>
-      <Modal isOpen={isOpen}
-        closeModal={closeModal} text="Account Created Succesfully!" />
-      <div className="SignUp-main">
+
+    
+   <>      <Modal isOpen={isOpen} 
+   closeModal={closeModal} text="Account Created Succesfully!"/>
+    <div className="SignUp-main Signup-mainV2">
         <div className='SignUp-container'>
-          <div className="SignUp-body">
-            <div className="SignUp-img">
-              <img src="https://img.icons8.com/external-bearicons-outline-color-bearicons/344/external-sign-up-call-to-action-bearicons-outline-color-bearicons-2.png" alt="icon" className='Sign-img' />
-              <h1 className="h1-form">
-                SIGN UP<span className="my-style"> </span>
-              </h1>
-            </div>
-          </div>
+      <div className="SignUp-body">
+        <div className="SignUp-img">
+          <img src="https://img.icons8.com/external-bearicons-outline-color-bearicons/344/external-sign-up-call-to-action-bearicons-outline-color-bearicons-2.png" alt="icon" className='Sign-img SignUp-imgV02' />
+          <h1 className="h1-form">
+            SIGN UP<span className="my-style"> </span>
+          </h1>
+        </div>
         </div>
         {role === "Admin" ?
           <>
@@ -73,24 +73,25 @@ const Form = (props) => {
               <Input text="Create Password" reference={pass}></Input>
               <button onClick={openModal} className="SignUp-button" >Create Account</button>
             </form>
-          </>
-          :
-          <form className="SignUp-form" >
-            <Input text="Name" reference={name}></Input>
-            <Input text="Last Name" reference={lastName}></Input>
-            <Input text="URL Photo" reference={photo}></Input>
-            <Input text="Email Address" reference={email}></Input>
-            <Input text="Create Password" reference={pass}></Input>
-            <div className='SignUp-Container'>
+      </>
+            :
+            <form className="SignUp-form" >
+              <Input text="Name" reference={name}></Input>
+              <Input text="Last Name" reference={lastName}></Input>
+              <Input text="URL Photo" reference={photo}></Input>
+              <Input text="Email Address" reference={email}></Input>
+              <Input text="Create Password" reference={pass}></Input>
+              <div className='SignUp-Container Buttons-containerV0FINAL'>
               <button onClick={openModal} className="SignUp-button" >Create Account</button>
-              <button onClick={openModal} className="SignUp-button" >Sign up with Google</button>
-            </div>
-            <p>Do you have an account?</p>
-            <LinkRouter to='/' className="SingUp1-button">Please sign in</LinkRouter>
-          </form>
-        }
-      </div>
-    </>
+              <button onClick={openModal} className="SignUp-button" >Google</button>
+              </div>
+           
+                <LinkRouter to='/' className="SingUp1-button">You have an account?Please sign in</LinkRouter>
+            </form>
+      }
+         </div>
+         </>
+
   );
 }
 export default Form
