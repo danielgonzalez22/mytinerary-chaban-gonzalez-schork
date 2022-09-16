@@ -12,7 +12,8 @@ const Modal = ({ isOpen, closeModal, text}) => {
 
         <div className="modal-container" onClick={handleModalContainerClick}>
         <button className="modal-close" onClick={closeModal}>x</button>
-          <img className="modal-image" src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="ok-image" />
+        <img className="modal-image" src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="ok-icon" />
+        
           <p>{text}</p>
       
         
