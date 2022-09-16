@@ -15,10 +15,10 @@ export default function GoogleSignUp() {
         console.log(userObject)
         let data ={
                 name: userObject.given_name,
-                lastname: userObject.family_name,
+                lastName: userObject.family_name,
                 photo: userObject.picture,
                 country: "Argentina",
-                email: userObject.email,
+                mail: userObject.email,
                 password: userObject.sub,
                 role: 'user',
                 from: 'google'

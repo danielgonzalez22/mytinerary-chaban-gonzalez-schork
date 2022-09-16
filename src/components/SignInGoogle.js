@@ -11,7 +11,7 @@ export default function GoogleSignIn(props) {
     async function handleCredentialResponse(response){
         let userObject = jose.decodeJwt(response.credential)
         let dataLogin = {
-            email: userObject.email,
+            mail: userObject.email,
             password: userObject.sub,
             from: 'google'
         }
