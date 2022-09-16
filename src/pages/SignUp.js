@@ -4,7 +4,6 @@ import WebsiteLayout from "../layouts/WebsiteLayout";
 import SignUpForm from "../components/SignUpForm";
 
 function SignUp() {
-
   const role = "user"
   return (
     <WebsiteLayout>
