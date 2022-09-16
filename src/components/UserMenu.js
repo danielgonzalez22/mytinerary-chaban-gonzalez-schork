@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { Link as LinkRouter } from 'react-router-dom'
 
+
 const pages = [
     {name:"Sign Up",
-    to: "/SignUp",
+    to: "auth/signup",
     },
     {name:"Login",
-    to: "/Login",
+    to: "auth/signin",
     }
 ]
 const navLinks = (page) => <LinkRouter className='navLink' to={page.to} key= {page.name}> {page.name} </LinkRouter>
