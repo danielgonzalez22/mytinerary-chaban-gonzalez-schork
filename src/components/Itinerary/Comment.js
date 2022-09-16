@@ -10,7 +10,7 @@ export default function Comments(props) {
       : setOpen(true)
   }
   return (
-    <div className="comment-container">
+    <div className="comment-container" key={comment._id}>
       {comment ?
         <button className="comments-button" type="button" onClick={handleOpen}>
           {open ? "Close comments" : "Open comments"} </button>

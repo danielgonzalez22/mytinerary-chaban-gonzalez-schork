@@ -4,7 +4,7 @@ import { useGetItinerariesUsersQuery } from '../features/actions/itinerariesApi'
 import Itinerary from '../components/Itinerary/Itinerary'
 
 export default function MyTineraries() {
-  let { data: items } = useGetItinerariesUsersQuery('6318f2cf86ea60a969d24e49')
+  let { data: items } = useGetItinerariesUsersQuery('6323e552205e25f2e07cd49a')
   return (
     <WebsiteLayout>
       <div className='container-itineraries'>
