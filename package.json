@@ -14,11 +14,8 @@
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-<<<<<<< HEAD
     "serve": "^14.0.1",
-=======
     "store": "^2.0.12",
->>>>>>> 951d8f7da08bdd796a20f773a6d6f6377fbd2a6c
     "web-vitals": "^2.1.4"
   },
   "scripts": {
