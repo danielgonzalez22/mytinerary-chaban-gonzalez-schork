@@ -5,7 +5,8 @@ import { Link as LinkRouter } from 'react-router-dom'
 const pages = [
   { name: 'Home', to: '/' },
   { name: 'Cities', to: '/Cities' },
-  { name: 'NewCity', to: '/NewCity' }
+  { name: 'NewCity', to: '/NewCity' },
+  { name: 'EditCity', to: '/EditCity' }
 ]
 const navLinks = (page) => <LinkRouter className='navLink' to={page.to} key={page.name}>{page.name}</LinkRouter>
 

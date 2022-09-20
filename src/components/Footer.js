@@ -12,6 +12,8 @@ function Footer(){
         <LinkRouter to='/' className="navLink">Home</LinkRouter>
         <LinkRouter to='/Cities' className="navLink">Cities</LinkRouter>
         <LinkRouter to='/NewCity' className="navLink">NewCity</LinkRouter>
+        <LinkRouter to='/EditCity' className="navLink">EditCity</LinkRouter>
+        
         </div>
         <ScrollToTop/> 
     </div>

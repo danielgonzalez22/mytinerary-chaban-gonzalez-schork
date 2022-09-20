@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { Link as LinkRouter } from 'react-router-dom'
 import Arrow from "./Arrow"
 import "../styles/Carousel.css"
 
@@ -7,14 +8,16 @@ function Carousel(props) {
   const [start, setStart] = useState(0)
   const [end, setEnd] = useState(start + range)
   const [intervalId, setIntervalId] = useState()
-  const citiesLimit = 12
-  const items = (props.data).slice(0,(citiesLimit))
+  // const citiesLimit = 12
+  const items = props.cities
 
   const itemView = (item) => (
-    <div className="item" key={item.title}>
-      <img src={item.url} alt={item.title} className="image-style" />
-      <p className="title-city">{item.title}</p>
-    </div>
+    <LinkRouter to={`/City/${item._id}`} style={{color:'inherit', textDecoration: 'inherit'}}>
+      <div className="item" key={item.city}>
+        <img src={item.photo} alt={item.city} className="image-style" />
+        <p className="title-city">{item.city}</p>
+      </div>
+    </LinkRouter>
   )
 
   useEffect(() => {
@@ -51,6 +54,7 @@ function Carousel(props) {
 
   return (
     <>
+
       <div className="subtitle">
         <img src="/img/gummy-polaroid.svg" alt="cam-carousel" className='cam-carousel' />
         <h2 className="popular-subtitle">{props.title}</h2>
@@ -58,12 +62,13 @@ function Carousel(props) {
       <div className="cards-container">
         <Arrow icon={"/img/caret-left.svg"} click={previous} />
         <div className="slide">
-          {items.slice(start, end).map(itemView)}
+          {items?.slice(start, end).map(itemView)}
         </div>
         <Arrow icon={"/img/caret-right.svg"} click={next} />
         <div className="carousel-buttons">
         </div>
       </div>
+
     </>
   )
 }

@@ -1,24 +1,39 @@
 import WebsiteLayout from '../layouts/WebsiteLayout'
 import '../styles/City.css'
+import { useParams, useNavigate } from 'react-router-dom'
+import Itinerary from "../components/Itinerary/Itinerary"
+import { useGetOneCityQuery } from '../features/actions/citiesApi'
+import { useGetCityItinerariesQuery } from '../features/actions/itinerariesApi'
 
 export default function City() {
+  const params = useParams()
+  const { id } = params
+  let { data: city } = useGetOneCityQuery(id)
+  let { data: itineraries } = useGetCityItinerariesQuery(id)
+  const navigate = useNavigate();
+
   return (
     <WebsiteLayout>
-      <div className="city-main">
+      {city ?
         <div className='city-container'>
-          <img src='' alt='city-img'></img>
+          <img className='city-img' src={city.photo} alt='city-img'></img>
           <div className='city-details'>
             <ul>
-              <li>Name:</li>
-              <li>Country:</li>
-              <li>Population:</li>
-              <li>Foundation:</li>
+              <li>Name: {city.city}</li>
+              <li>Country: {city.country}</li>
+              <li>Population: {city.population}</li>
+              <li>Foundation: {city.foundation}</li>
             </ul>
             <h3>Description</h3>
-            <p className='description-p'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, nihil, consectetur molestias autem est earum porro nulla neque sapiente tempora, atque quod quae natus? Voluptates nesciunt sunt id sequi officiis, consequatur impedit, perspiciatis sit, vel ex est quae corrupti mollitia ut necessitatibus a explicabo deleniti repudiandae tempora quo aliquid dolor!</p>
+            <p className='description-p'>{city.description}</p>
           </div>
+          <div>
+            {itineraries ? ((itineraries.length > 0) ? itineraries.map(itinerary => <Itinerary itinerary={itinerary} />) : <p>No itineraries here...</p>) : <p>No itineraries here...</p>}
+          </div>
+          <button className="goBack" onClick={() => navigate(-1)}>Go back</button>
         </div>
-      </div>
-    </WebsiteLayout>
+        : <p>City not found on database</p>
+      }
+    </WebsiteLayout >
   )
 }
