@@ -58,6 +58,7 @@ margin-bottom: 10px;
 @media (max-width: 550px){
   .input{
       width: 60vw;
+      margin-left: 0px !important ;
   }
 }
   @media (max-width: 550px){

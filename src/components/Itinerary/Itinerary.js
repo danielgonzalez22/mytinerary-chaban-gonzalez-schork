@@ -1,50 +1,36 @@
-// import Activities from "./Activities"
-// import Comments from "./Comments"
-import Comments from "./Comment"
-// import Activities from "./Activity"
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import Activity from "./Activity"
+import Comment from "./Comment"
+import { useGetItinerariesCommentQuery } from '../../features/actions/commentsApi'
+import { useGetItineraryActivitiesQuery } from '../../features/actions/activitiesApi'
 import '../../styles/Itinerary/Itinerary.css'
 export default function Itinerary(props) {
-
-  const itinerary = props.data
-  const [users, setUsers] = useState([])
-
-  useEffect(() => {
-    axios.get("http://localhost:4000/users/")
-      .then(res => setUsers(res.data.response))
-    console.log(users)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-  //const getUser = () => {
-  //let userName = itinerary.user
-  //let user = users.find(e => e.name == "Lionel")
-  //return user
-  //}
+  const itinerary = props.itinerary
+  let { data: comments } = useGetItinerariesCommentQuery(itinerary._id)
+  let { data: activities } = useGetItineraryActivitiesQuery(itinerary._id)
   return (
-    <>
+    <div key={itinerary._id}>
       <p className="name-it">{itinerary.name}</p>
       <div className="container-it">
         <div className="user-it">
-          <img src="https://www.cariverplate.com.ar/imagenes/jugadores/2022-08/1498-24-perez-imagenprincipal.png" alt="" className="img-user" />
-          <p>Enzo Perez</p>
-          <p>enzo123@gmail.com</p>
-          <p>Argentina</p>
+          <img src={itinerary.user.photo} alt="img-user" className="img-user" />
+          <p>{itinerary.user.name} {itinerary.user.lastName}</p>
+          <p>{itinerary.user.country}</p>
         </div>
         <div className="main-it">
-          <div className="text-it">
-            <p>{itinerary.likes} Likes</p>
-            <p className="text-duration">Duration: {itinerary.duration}hs</p>
-          </div>
+          <p>{itinerary.likes} Likes</p>
+          <p className="text-duration">Duration: {itinerary.duration}hs</p>
           <p className="price-it">Price: ${itinerary.price}</p>
-          <p className="hashtags">
-            {itinerary.tags.map(tag => tag)}
+          <p className="hashtags">{itinerary.tags.map(tag => tag)}
           </p>
         </div>
-        {<Comments itinerary={itinerary._id} />}
       </div>
-    {/* {<Activities itinerary={itinerary._id} />} */}
-    </>
+      <div className="activities-it">
+        {activities ? ((activities.length > 0) ? activities.map(activity => <Activity activity={activity} />) : <p>No activities here...</p>) : <p>No activities here...</p>}
+      </div>
+      <div className="comments-it">
+        {comments ? ((comments.length > 0) ? comments.map(comment => <Comment comment={comment} />) : <p>No comments here...</p>) : <p>No comments here...</p>}
+      </div>
+    </div>
   )
 }
 

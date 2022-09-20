@@ -8,8 +8,8 @@ function Carousel(props) {
   const [start, setStart] = useState(0)
   const [end, setEnd] = useState(start + range)
   const [intervalId, setIntervalId] = useState()
-  const citiesLimit = 12
-  const items = (props.data).slice(0, (citiesLimit))
+  // const citiesLimit = 12
+  const items = props.cities
 
   const itemView = (item) => (
     <LinkRouter to={`/City/${item._id}`} style={{color:'inherit', textDecoration: 'inherit'}}>

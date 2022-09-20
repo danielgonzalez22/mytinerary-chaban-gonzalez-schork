@@ -2,23 +2,32 @@ html {
     overflow-x: hidden;
 }
 
-.city-main {
-    min-height: 80vh;
-}
+
 
 .city-container {
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     text-align: center;
 }
 
+.city-img {
+    height: 50vh;
+    width: 90vw;
+    object-fit: cover;
+}
+
 .city-details {
+    width: 90vw;
+    margin-top: 1vh;
+    background-color: rgba(240, 234, 234, 0.42);
+    box-shadow: 0 0 0.9375em rgba(0, 0, 0, 0.219);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-size: 4vh;
+    font-size: 1.5rem;
 }
 
 li::marker {
@@ -47,11 +56,7 @@ li::marker {
     text-decoration: none;
 }
 
-.city-img {
-    height: 300px;
-    width: 100%;
-    object-fit: cover;
-}
+
 
 .description-p {
     font-size: 3vh;

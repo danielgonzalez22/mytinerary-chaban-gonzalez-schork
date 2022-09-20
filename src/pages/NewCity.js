@@ -1,11 +1,15 @@
-import '../styles/NewCity.css';
-import WebsiteLayout from '../layouts/WebsiteLayout';
-import Input from '../components/Input';
-import React, { useRef , useState } from 'react'
+import '../styles/NewCity.css'
+import WebsiteLayout from '../layouts/WebsiteLayout'
+import Input from '../components/Input'
+import React, { useRef, useState } from 'react'
 import axios from 'axios'
 import Modal from '../components/Modal'
 
 function NewCity() {
+  const [message, setMessage] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
   const name = useRef()
   const country = useRef()
   const photo = useRef()
@@ -22,23 +26,14 @@ function NewCity() {
       foundation: foundation.current.value,
       description: description.current.value,
     }
-    console.log(newCity)
     await axios.post('http://localhost:4000/cities/', newCity)
-    console.log(name)
-    console.log(country
-    )
+      .then(response => {
+        setMessage(response.statusText)
+      })
   }
-
-  const[isOpen,setIsOpen] = useState(false);
-
-
-const openModal = () => setIsOpen(true);
-
-const closeModal = () => setIsOpen(false);
-
   return (
     <WebsiteLayout>
-    <Modal isOpen={isOpen} closeModal={closeModal} text="City Added Succesfully!"/>
+      <Modal isOpen={isOpen} closeModal={closeModal} text={message} result={message} />
       <div className="newcity-body">
         <div className='tittle-form-page'>
           <img src="/img/gummy-city.svg" alt="icon" className='city-form' />
@@ -47,7 +42,7 @@ const closeModal = () => setIsOpen(false);
         <div className='FormImgContainer'>
           <div className="MainNewCity">
             <form className='form' onSubmit={captureData}>
-            <Input text="City" reference={name}></Input>
+              <Input text="City" reference={name}></Input>
               <Input text="Country" reference={country}></Input>
               <Input text="PhotoURL" reference={photo}></Input>
               <Input text="Population" reference={population}></Input>
@@ -59,9 +54,6 @@ const closeModal = () => setIsOpen(false);
                 name="description"
                 ref={description} />
               <button onClick={openModal} className='welcomePage-button'>Submit</button>
-
-              
-
             </form>
           </div>
         </div>

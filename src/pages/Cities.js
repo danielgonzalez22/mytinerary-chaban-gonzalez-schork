@@ -1,24 +1,12 @@
 import '../styles/Cities.css';
+import { useState } from "react"
 import WebsiteLayout from '../layouts/WebsiteLayout';
 import CityCard from '../components/CityCard';
 import { citiesAPI } from '../features/actions/citiesApi'
 
 function Cities() {
-
-    let { data: items,
-      isLoading,
-      isSuccess,
-      isFailed, } = citiesAPI.useGetAllCitiesQuery()
-    if (isLoading) {
-      items = []
-      console.log("Loading");
-    } else if (isSuccess) {
-      console.log("Load succesfully");
-
-    } else if (isFailed) {
-      console.log("3");
-      items = [];
-    }
+  const [cityName, setCityName] = useState("")
+  let { data: items } = citiesAPI.useGetAllCitiesQuery(cityName)
 
   const itemView = (item) => (
     <CityCard image={item.photo} title={item.city} id={item._id}></CityCard>
@@ -26,8 +14,9 @@ function Cities() {
   return (
     <WebsiteLayout>
       <div className='cities-main'>
+        <input type="text" placeholder="Search..." onChange={(e) => setCityName(e.target.value)} className="cities-search"></input>
         <div className="cards-cities-container">
-          {items.map(itemView)}
+          {items?.map(itemView)}
         </div>
       </div>
     </WebsiteLayout>

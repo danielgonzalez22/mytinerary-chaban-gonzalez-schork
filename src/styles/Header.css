@@ -65,6 +65,19 @@ nav {
     position: absolute;
     border: 1px solid rgb(206, 177, 142);
     border-radius: 5px;
+    z-index: 2;
+}
+.user-img{
+    background-color:rgb(247, 214, 170);
+    border: 0px;
+
+}
+.user-button{
+    border: 0px;
+    background-color:rgb(247, 214, 170);
+    color: rgb(247, 214, 170);
+
+
 }
 
 @media (min-width: 600px) {
