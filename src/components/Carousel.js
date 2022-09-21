@@ -7,30 +7,23 @@ function Carousel(props) {
   const range = props.range
   const [start, setStart] = useState(0)
   const [end, setEnd] = useState(start + range)
-  const [intervalId, setIntervalId] = useState()
   // const citiesLimit = 12
   const items = props.cities
-
   const itemView = (item) => (
-    <LinkRouter to={`/City/${item._id}`} style={{color:'inherit', textDecoration: 'inherit'}}>
+    <LinkRouter to={`/City/${item._id}`} style={{ color: 'inherit', textDecoration: 'inherit' }}>
       <div className="item" key={item.city}>
         <img src={item.photo} alt={item.city} className="image-style" />
         <p className="title-city">{item.city}</p>
       </div>
     </LinkRouter>
   )
-
   useEffect(() => {
     let id = setInterval(function () {
       next()
     }, 5000)
-
-    setIntervalId(id)
-
     return () => clearInterval(id)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [start])
-
   function previous() {
     if (start >= range) {
       setStart(start - range)
@@ -40,7 +33,6 @@ function Carousel(props) {
       setEnd(items.length)
     }
   }
-
   function next() {
     if (end < items.length) {
       setStart(start + range)
@@ -49,12 +41,9 @@ function Carousel(props) {
       setStart(0)
       setEnd(range)
     }
-    clearInterval(intervalId)
   }
-
   return (
     <>
-
       <div className="subtitle">
         <img src="/img/gummy-polaroid.svg" alt="cam-carousel" className='cam-carousel' />
         <h2 className="popular-subtitle">{props.title}</h2>
@@ -68,7 +57,6 @@ function Carousel(props) {
         <div className="carousel-buttons">
         </div>
       </div>
-
     </>
   )
 }

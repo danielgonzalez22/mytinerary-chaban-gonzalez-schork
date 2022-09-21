@@ -5,7 +5,7 @@ import '../styles/SignUp.css'
 import { Link as LinkRouter } from 'react-router-dom'
 import { useUserSignUpMutation } from '../features/actions/usersApi'
 
-const Form = (props) => {
+const SignUpForm = (props) => {
   const [postUser, { data: body, error, isSuccess }] = useUserSignUpMutation()
   let alertMessage = ""
   if (body?.success) {
@@ -44,7 +44,6 @@ const Form = (props) => {
       setIsOpen(false)
     }, 5000)
   }
-
   return (
     <>
       <Modal isOpen={isOpen}
@@ -85,7 +84,6 @@ const Form = (props) => {
                 <Input text="Create Password" reference={pass}></Input>
                 <div className='signUp-Container Buttons-containerV0FINAL'>
                   <button className="signUp-button" >Create Account</button>
-
                 </div>
                 <LinkRouter to='/auth/login' className="singUp1-button">Already have an account?Please sign in</LinkRouter>
               </form>
@@ -96,7 +94,7 @@ const Form = (props) => {
     </>
   )
 }
-export default Form
+export default SignUpForm
 
 
 
