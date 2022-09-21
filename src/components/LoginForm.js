@@ -1,38 +1,55 @@
-
-import React, { useState, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Modal from './Modal';
 import Input from './Input';
 import '../styles/SignUp.css'
-import { Link as LinkRouter } from 'react-router-dom'
+import { Link as LinkRouter, useNavigate } from 'react-router-dom'
 import { useUserSignInMutation } from '../features/actions/usersApi'
 
-const SignIncomponent = () => {
+const SignInForm = () => {
   const [logUser, { data: body, error, isSuccess }] = useUserSignInMutation()
+  const navigate = useNavigate();
+  let loggedUser = undefined
   let alertMessage = ""
   if (body?.success) {
-    alertMessage = body?.message
-    console.log(body.success)
+    alertMessage = body.message
+    loggedUser = body.response.user
+    console.log(loggedUser)
+    localStorage.setItem("userId", loggedUser.id)
+    localStorage.setItem("userRole", loggedUser.role)
   } else if (error) {
     alertMessage = error?.data.message
-    console.log(isSuccess)
   }
   const [isOpen, setIsOpen] = useState(false);
+  const [alertTimer, setAlertTimer] = useState();
   const closeModal = () => setIsOpen(false);
   const email = useRef()
   const password = useRef()
 
   const handleSubmit = (e) => {
-    email.preventDefault()
+    e.preventDefault()
+    clearTimeout(alertTimer)
     const user = {
       mail: email.current.value,
-      password: password.current.value
+      password: password.current.value,
+      from: "form"
     }
     logUser(user)
+    showAlert()
     setIsOpen(true)
-    setTimeout(() => {
-      setIsOpen(false)
-    }, 5000)
   }
+  const showAlert = () => {
+    let timer = setTimeout(() => {
+      setIsOpen(false)
+    }, 3000)
+    setAlertTimer(timer)
+  }
+  useEffect(() => {
+    if (body?.success && !isOpen) {
+        navigate("/")
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen])
+
   return (
     <>      <Modal isOpen={isOpen}
       closeModal={closeModal} text={alertMessage} result={isSuccess} />
@@ -63,4 +80,4 @@ const SignIncomponent = () => {
     </>
   )
 }
-export default SignIncomponent
+export default SignInForm
