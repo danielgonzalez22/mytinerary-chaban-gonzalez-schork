@@ -1,38 +1,45 @@
-
 import React, { useState, useRef } from 'react'
 import Modal from './Modal';
 import Input from './Input';
 import '../styles/SignUp.css'
-import { Link as LinkRouter } from 'react-router-dom'
+import { Link as LinkRouter, useNavigate } from 'react-router-dom'
 import { useUserSignInMutation } from '../features/actions/usersApi'
 
 const SignInForm = () => {
   const [logUser, { data: body, error, isSuccess }] = useUserSignInMutation()
+  const navigate = useNavigate();
+  let loggedUser = undefined
   let alertMessage = ""
   if (body?.success) {
-    alertMessage = body?.message
-    console.log(body.success)
+    alertMessage = body.message
+    loggedUser = body.response.user.id
+    localStorage.setItem("user", loggedUser)
   } else if (error) {
     alertMessage = error?.data.message
-    console.log(isSuccess)
   }
   const [isOpen, setIsOpen] = useState(false);
+  const [alertTimer, setAlertTimer] = useState();
   const closeModal = () => setIsOpen(false);
   const email = useRef()
   const password = useRef()
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    clearTimeout(alertTimer)
     const user = {
       mail: email.current.value,
       password: password.current.value,
-      from:"form"
+      from: "form"
     }
     logUser(user)
     setIsOpen(true)
-    setTimeout(() => {
+    let timer = setTimeout(() => {
       setIsOpen(false)
-    }, 5000)
+      if(body?.success){
+        navigate("/")
+      }
+    }, 3000)
+    setAlertTimer(timer)
   }
   return (
     <>      <Modal isOpen={isOpen}
