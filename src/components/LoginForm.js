@@ -6,7 +6,7 @@ import '../styles/SignUp.css'
 import { Link as LinkRouter } from 'react-router-dom'
 import { useUserSignInMutation } from '../features/actions/usersApi'
 
-const SignIncomponent = () => {
+const SignInForm = () => {
   const [logUser, { data: body, error, isSuccess }] = useUserSignInMutation()
   let alertMessage = ""
   if (body?.success) {
@@ -22,10 +22,11 @@ const SignIncomponent = () => {
   const password = useRef()
 
   const handleSubmit = (e) => {
-    email.preventDefault()
+    e.preventDefault()
     const user = {
       mail: email.current.value,
-      password: password.current.value
+      password: password.current.value,
+      from:"form"
     }
     logUser(user)
     setIsOpen(true)
@@ -63,4 +64,4 @@ const SignIncomponent = () => {
     </>
   )
 }
-export default SignIncomponent
+export default SignInForm
