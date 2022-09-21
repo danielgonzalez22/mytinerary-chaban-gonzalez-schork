@@ -1,20 +1,33 @@
 import { useState } from 'react'
-import { Link as LinkRouter } from 'react-router-dom'
+import { Link as LinkRouter, useNavigate } from 'react-router-dom'
 
-const pages = [
-  {
-    name: "Sign Up",
-    to: "/auth/signup",
-  },
-  {
-    name: "Login",
-    to: "/auth/login",
-  }
-]
-const navLinks = (page) => <LinkRouter className='navLink' to={page.to} key={page.name}> {page.name} </LinkRouter>
 const UserMenu = () => {
-  const [open, setOpen] = useState(false)
+  const pages = [
+    {
+      name: "Sign Up",
+      to: "/auth/signup",
+    },
+    {
+      name: "Login",
+      to: "/auth/login",
+    }
+  ]
+  const navigate = useNavigate();
+  const navLinks = (page) => <LinkRouter className='navLink' to={page.to} key={page.name}> {page.name} </LinkRouter>
+  const userLogged = localStorage.getItem("userId")
 
+  const handleLogOut = () => {
+    localStorage.clear()
+    navigate("/")
+  }
+  let menuContent
+  if (userLogged) {
+    menuContent = (<button onClick={handleLogOut}>Log Out</button>)
+  }
+  else {
+    menuContent = (pages.map(navLinks))
+  }
+  const [open, setOpen] = useState(false)
   const handleOpenMenu = () => {
     if (open === true) { setOpen(false) }
     else { setOpen(true) }
@@ -25,7 +38,7 @@ const UserMenu = () => {
         <div>
           {
             open ? <div className='burger-menu'>
-              {pages.map(navLinks)}
+              {menuContent}
             </div> : null
           }
         </div>

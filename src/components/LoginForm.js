@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Modal from './Modal';
 import Input from './Input';
 import '../styles/SignUp.css'
@@ -12,8 +12,10 @@ const SignInForm = () => {
   let alertMessage = ""
   if (body?.success) {
     alertMessage = body.message
-    loggedUser = body.response.user.id
-    localStorage.setItem("user", loggedUser)
+    loggedUser = body.response.user
+    console.log(loggedUser)
+    localStorage.setItem("userId", loggedUser.id)
+    localStorage.setItem("userRole", loggedUser.role)
   } else if (error) {
     alertMessage = error?.data.message
   }
@@ -32,15 +34,22 @@ const SignInForm = () => {
       from: "form"
     }
     logUser(user)
+    showAlert()
     setIsOpen(true)
+  }
+  const showAlert = () => {
     let timer = setTimeout(() => {
       setIsOpen(false)
-      if(body?.success){
-        navigate("/")
-      }
     }, 3000)
     setAlertTimer(timer)
   }
+  useEffect(() => {
+    if (body?.success && !isOpen) {
+        navigate("/")
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen])
+
   return (
     <>      <Modal isOpen={isOpen}
       closeModal={closeModal} text={alertMessage} result={isSuccess} />
