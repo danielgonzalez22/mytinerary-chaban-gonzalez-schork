@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link as LinkRouter, useNavigate } from 'react-router-dom'
+import { useUserSignOutMutation } from '../features/actions/usersApi'
 
 const UserMenu = () => {
   const pages = [
@@ -14,14 +15,17 @@ const UserMenu = () => {
   ]
   const navigate = useNavigate();
   const navLinks = (page) => <LinkRouter className='navLink' to={page.to} key={page.name}> {page.name} </LinkRouter>
-  const userLogged = localStorage.getItem("userId")
+  let userMail = localStorage.getItem("userMail")
+  let user={mail:userMail}
   const menuIcon = useRef()
-  const handleLogOut = () => {
+  const [signOut] = useUserSignOutMutation()
+  const handleLogOut = async () => {
+    await signOut(user)
     localStorage.clear()
-    navigate("/")
+    navigate("/",{replace:true})
   }
   let menuContent
-  if (userLogged) {
+  if (userMail) {
     menuContent = (<button onClick={handleLogOut}>Log Out</button>)
   } else {
     menuContent = (pages.map(navLinks))

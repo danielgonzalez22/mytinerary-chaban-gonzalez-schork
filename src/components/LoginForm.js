@@ -15,6 +15,7 @@ const SignInForm = () => {
     loggedUser = body.response.user
     localStorage.setItem("userId", loggedUser.id)
     localStorage.setItem("userRole", loggedUser.role)
+    localStorage.setItem("userMail", loggedUser.mail)
   } else if (error) {
     alertMessage = error?.data.message
   }
@@ -24,7 +25,7 @@ const SignInForm = () => {
   const email = useRef()
   const password = useRef()
 
-  const handleSubmit = (e) => {
+  const handleSubmit =  async (e) => {
     e.preventDefault()
     clearTimeout(alertTimer)
     const user = {
@@ -32,7 +33,7 @@ const SignInForm = () => {
       password: password.current.value,
       from: "form"
     }
-    logUser(user)
+    await logUser(user)
     showAlert()
     setIsOpen(true)
   }
