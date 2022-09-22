@@ -1,22 +1,22 @@
-import React, { useState, useRef } from 'react'
-import Modal from './Modal';
-import Input from './Input';
+import React, { useState, useEffect, useRef } from 'react'
+import Modal from './Modal'
+import Input from './Input'
 import '../styles/SignUp.css'
-import { Link as LinkRouter } from 'react-router-dom'
+import { Link as LinkRouter, useNavigate } from 'react-router-dom'
 import { useUserSignUpMutation } from '../features/actions/usersApi'
 
 const SignUpForm = (props) => {
+  const navigate = useNavigate()
   const [postUser, { data: body, error, isSuccess }] = useUserSignUpMutation()
   let alertMessage = ""
   if (body?.success) {
-    alertMessage = body?.message
-    console.log(body.success)
+    alertMessage = body.message
   } else if (error) {
     alertMessage = error?.data.message
-    console.log(isSuccess)
   }
   const [isOpen, setIsOpen] = useState()
-  const closeModal = () => setIsOpen(false);
+  const [alertTimer, setAlertTimer] = useState()
+  const closeModal = () => setIsOpen(false)
   const role = props.role
   const name = useRef()
   const lastName = useRef()
@@ -25,8 +25,9 @@ const SignUpForm = (props) => {
   const email = useRef()
   const pass = useRef()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    clearTimeout(alertTimer)
     const newUser = {
       name: name.current.value,
       lastName: lastName.current.value,
@@ -37,13 +38,22 @@ const SignUpForm = (props) => {
       role: role,
       from: "form"
     }
-    console.log(newUser)
-    postUser(newUser)
+    await postUser(newUser)
+    showAlert()
     setIsOpen(true)
-    setTimeout(() => {
-      setIsOpen(false)
-    }, 5000)
   }
+  const showAlert = () => {
+    let timer = setTimeout(() => {
+      setIsOpen(false)
+    }, 3000)
+    setAlertTimer(timer)
+  }
+  useEffect(() => {
+    if (body?.success && !isOpen) {
+      navigate("/")
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen])
   return (
     <>
       <Modal isOpen={isOpen}
