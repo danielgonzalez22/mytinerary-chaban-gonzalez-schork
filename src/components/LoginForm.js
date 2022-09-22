@@ -4,8 +4,11 @@ import Input from './Input';
 import '../styles/SignUp.css'
 import { Link as LinkRouter, useNavigate } from 'react-router-dom'
 import { useUserSignInMutation } from '../features/actions/usersApi'
+import { useDispatch } from 'react-redux';
+import { logInAction } from '../features/actions/'
 
-const SignInForm = () => {
+const LogInForm = () => {
+  const dispatch = useDispatch()
   const [logUser, { data: body, error, isSuccess }] = useUserSignInMutation()
   const navigate = useNavigate();
   let loggedUser = undefined
@@ -13,6 +16,7 @@ const SignInForm = () => {
   if (body?.success) {
     alertMessage = body.message
     loggedUser = body.response.user
+    dispatch(logInAction())
     localStorage.setItem("userId", loggedUser.id)
     localStorage.setItem("userRole", loggedUser.role)
     localStorage.setItem("userMail", loggedUser.mail)
@@ -25,7 +29,7 @@ const SignInForm = () => {
   const email = useRef()
   const password = useRef()
 
-  const handleSubmit =  async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     clearTimeout(alertTimer)
     const user = {
@@ -45,7 +49,7 @@ const SignInForm = () => {
   }
   useEffect(() => {
     if (body?.success && !isOpen) {
-        navigate("/")
+      navigate("/")
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen])
@@ -80,4 +84,4 @@ const SignInForm = () => {
     </>
   )
 }
-export default SignInForm
+export default LogInForm

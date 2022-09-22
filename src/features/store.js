@@ -4,10 +4,13 @@ import { citiesAPI } from "./actions/citiesApi"
 import { commentsAPI } from "./actions/commentsApi"
 import { itinerariesAPI } from "./actions/itinerariesApi"
 import { usersAPI } from "./actions/usersApi"
+import loggedReducer from "./reducers/isLogged"
 
 
 export const store = configureStore({
   reducer: {
+    isLogged: loggedReducer,
+
     cities: citiesAPI,
     [citiesAPI.reducerPath]: citiesAPI.reducer,
 
