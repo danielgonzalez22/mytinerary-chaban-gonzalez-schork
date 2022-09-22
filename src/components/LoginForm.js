@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
-import Modal from './Modal';
-import Input from './Input';
+import Modal from './Modal'
+import Input from './Input'
 import '../styles/SignUp.css'
 import { Link as LinkRouter, useNavigate } from 'react-router-dom'
 import { useUserSignInMutation } from '../features/actions/usersApi'
@@ -9,8 +9,8 @@ import { logInAction } from '../features/actions/'
 
 const LogInForm = () => {
   const dispatch = useDispatch()
-  const [logUser, { data: body, error, isSuccess }] = useUserSignInMutation()
   const navigate = useNavigate();
+  const [logUser, { data: body, error, isSuccess }] = useUserSignInMutation()
   let loggedUser = undefined
   let alertMessage = ""
   if (body?.success) {
@@ -23,9 +23,9 @@ const LogInForm = () => {
   } else if (error) {
     alertMessage = error?.data.message
   }
-  const [isOpen, setIsOpen] = useState(false);
-  const [alertTimer, setAlertTimer] = useState();
-  const closeModal = () => setIsOpen(false);
+  const [isOpen, setIsOpen] = useState(false)
+  const [alertTimer, setAlertTimer] = useState()
+  const closeModal = () => setIsOpen(false)
   const email = useRef()
   const password = useRef()
 
@@ -55,8 +55,9 @@ const LogInForm = () => {
   }, [isOpen])
 
   return (
-    <>      <Modal isOpen={isOpen}
-      closeModal={closeModal} text={alertMessage} result={isSuccess} />
+    <>
+      <Modal isOpen={isOpen}
+        closeModal={closeModal} text={alertMessage} result={isSuccess} />
       <div className="signUp-main">
         <div className='signUp-container'>
           <div className="signUp-body">
