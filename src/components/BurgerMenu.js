@@ -1,10 +1,22 @@
 import { useState, useEffect, useRef } from 'react'
 import "../styles/Header.css"
 import { Link as LinkRouter } from 'react-router-dom'
-
-const loggedUserRole = localStorage.getItem("userRole")
+import { useSelector, useDispatch } from 'react-redux'
+import { logInAction } from '../features/actions/'
 
 export default function BurgerMenu() {
+  const dispatch = useDispatch()
+  const isLogged = useSelector(state => state.isLogged)
+  const [loggedUserRole, setLoggedUserRole] = useState(localStorage.getItem("userRole"))
+  useEffect(() => {
+    setLoggedUserRole(localStorage.getItem("userRole"))
+  }, [isLogged])
+  useEffect(() => {
+    if (loggedUserRole) {
+      dispatch(logInAction())
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   let menuContent
   if (loggedUserRole) {
     menuContent = ([<LinkRouter className='navLink' to='/MyTineraries' key='MyTineraries'>MyTineraries</LinkRouter>])
@@ -15,7 +27,6 @@ export default function BurgerMenu() {
     <LinkRouter to='/EditCity' className="navLink" key='EditCity'>EditCity</LinkRouter>
     ])
   }
-
   const [open, setOpen] = useState(false)
   const menuIcon = useRef()
   const handleToggleMenu = () => { setOpen(!open) }
