@@ -4,7 +4,8 @@ import { useGetItinerariesUsersQuery } from '../features/actions/itinerariesApi'
 import Itinerary from '../components/Itinerary/Itinerary'
 
 export default function MyTineraries() {
-  let { data: items } = useGetItinerariesUsersQuery('6323e552205e25f2e07cd49a')
+  const userId = localStorage.getItem('userId')
+  let { data: items } = useGetItinerariesUsersQuery(userId)
   return (
     <WebsiteLayout>
       <div className='container-itineraries'>
