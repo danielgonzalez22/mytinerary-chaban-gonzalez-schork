@@ -13,7 +13,6 @@ const SignInForm = () => {
   if (body?.success) {
     alertMessage = body.message
     loggedUser = body.response.user
-    console.log(loggedUser)
     localStorage.setItem("userId", loggedUser.id)
     localStorage.setItem("userRole", loggedUser.role)
   } else if (error) {
