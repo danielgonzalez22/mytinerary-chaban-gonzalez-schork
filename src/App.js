@@ -24,7 +24,7 @@ function App() {
         <Route path='/EditCity' element={<EditCity />}></Route>
         <Route path='/MyTineraries' element={<MyTineraries />}></Route>
         <Route path='/*' element={<NotFound />}></Route>
-        <Route path='/NewItinerary' element={<NewItinerary />}></Route>
+        <Route path='/NewItinerary/:id' element={<NewItinerary />}></Route>
       </Routes>
     </BrowserRouter>
   )
