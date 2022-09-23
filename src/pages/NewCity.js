@@ -2,23 +2,31 @@ import '../styles/NewCity.css'
 import WebsiteLayout from '../layouts/WebsiteLayout'
 import Input from '../components/Input'
 import React, { useRef, useState } from 'react'
-import axios from 'axios'
 import Modal from '../components/Modal'
+import { usePostOneCityMutation } from '../features/actions/citiesApi'
 
 function NewCity() {
-  const [message, setMessage] = useState(null);
+  const [addCity, { data: body, error, isSuccess }] = usePostOneCityMutation()
+  let alertMessage = ""
+  if (body?.success) {
+    alertMessage = body.message
+  } else if (error) {
+    alertMessage = error?.data.message
+  }
   const [isOpen, setIsOpen] = useState(false);
-  const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
+  const [alertTimer, setAlertTimer] = useState()
   const name = useRef()
   const country = useRef()
   const photo = useRef()
   const population = useRef()
   const foundation = useRef()
   const description = useRef()
-  const captureData = async (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    const newCity = {
+    clearTimeout(alertTimer)
+    const city = {
       city: name.current.value,
       country: country.current.value,
       photo: photo.current.value,
@@ -26,14 +34,20 @@ function NewCity() {
       foundation: foundation.current.value,
       description: description.current.value,
     }
-    await axios.post('http://localhost:4000/cities/', newCity)
-      .then(response => {
-        setMessage(response.statusText)
-      })
+    await addCity(city)
+    showAlert()
+    setIsOpen(true)
+    e.target.reset()
+  }
+  const showAlert = () => {
+    let timer = setTimeout(() => {
+      setIsOpen(false)
+    }, 3000)
+    setAlertTimer(timer)
   }
   return (
     <WebsiteLayout>
-      <Modal isOpen={isOpen} closeModal={closeModal} text={message} result={message} />
+      <Modal isOpen={isOpen} closeModal={closeModal} text={alertMessage} result={isSuccess} />
       <div className="newcity-body">
         <div className='tittle-form-page'>
           <img src="/img/gummy-city.svg" alt="icon" className='city-form' />
@@ -41,7 +55,7 @@ function NewCity() {
         </div>
         <div className='FormImgContainer'>
           <div className="MainNewCity">
-            <form className='form' onSubmit={captureData}>
+            <form className='form' onSubmit={handleSubmit} >
               <Input text="City" reference={name}></Input>
               <Input text="Country" reference={country}></Input>
               <Input text="PhotoURL" reference={photo}></Input>
@@ -53,7 +67,7 @@ function NewCity() {
                 required
                 name="description"
                 ref={description} />
-              <button onClick={openModal} className='welcomePage-button'>Submit</button>
+              <button className='welcomePage-button'>Submit</button>
             </form>
           </div>
         </div>
