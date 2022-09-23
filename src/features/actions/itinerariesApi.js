@@ -22,6 +22,13 @@ export const itinerariesAPI = createApi({
       }),
       transformResponse: (response) => response.response
     }),
+    postOneItinerary: builder.mutation({
+      query: (itinerary) => ({
+        url: "/itineraries/",
+        method: "POST",
+        body: itinerary,
+      })
+    }),
     modifyItinerary: builder.mutation({
       query: (id, data) => ({
         url: `/itineraries/${id}`,
@@ -43,4 +50,5 @@ export const {
   useDeleteItineraryMutation,
   useModifyItineraryMutation,
   useGetCityItinerariesQuery,
+  usePostOneItineraryMutation
 } = itinerariesAPI;

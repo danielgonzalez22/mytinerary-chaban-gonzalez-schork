@@ -1,11 +1,14 @@
 import WebsiteLayout from '../layouts/WebsiteLayout'
 import '../styles/City.css'
+import { Link as LinkRouter } from 'react-router-dom'
 import { useParams, useNavigate } from 'react-router-dom'
 import Itinerary from "../components/Itinerary/Itinerary"
 import { useGetOneCityQuery } from '../features/actions/citiesApi'
 import { useGetCityItinerariesQuery } from '../features/actions/itinerariesApi'
+import { useState } from 'react'
 
 export default function City() {
+  const [loggedUserRole, setLoggedUserRole] = useState(localStorage.getItem("userRole"))
   const params = useParams()
   const { id } = params
   let { data: city } = useGetOneCityQuery(id)
@@ -28,7 +31,17 @@ export default function City() {
             <p className='description-p'>{city.description}</p>
           </div>
           <div>
-            {itineraries ? ((itineraries.length > 0) ? itineraries.map(itinerary => <Itinerary itinerary={itinerary} />) : <p>No itineraries here...</p>) : <p>No itineraries here...</p>}
+            {itineraries && itineraries.length > 0 && loggedUserRole ?
+              <>
+                {<LinkRouter to={`/NewItinerary/${id}`}><button className="goBack">ADD Itinerary</button></LinkRouter>}
+                {itineraries.map(itinerary => <Itinerary itinerary={itinerary} />)}
+              </>
+              :
+              <div>
+                {itineraries && itineraries.length > 0 && !loggedUserRole ? itineraries.map(itinerary => <Itinerary itinerary={itinerary} />)
+                  : <p>No itineraries here...<span>{<LinkRouter to={`/NewItinerary/${id}`}><button className="goBack">ADD ONE</button></LinkRouter>}</span></p>}
+              </div>
+            }
           </div>
           <button className="goBack" onClick={() => navigate(-1)}>Go back</button>
         </div>

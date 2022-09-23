@@ -43,7 +43,8 @@ export const activitiesAPI = createApi({
 })
 export const {
   useCreateActivityMutation,
-  useDeleteActivityMutation, useGetActivityQuery,
+  useDeleteActivityMutation, 
+  useGetActivityQuery,
   useGetAllActivitiesQuery,
   useGetItineraryActivitiesQuery
 } = activitiesAPI

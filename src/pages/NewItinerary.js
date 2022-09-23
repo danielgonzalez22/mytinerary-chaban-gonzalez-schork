@@ -1,83 +1,134 @@
-
-import React, {useState, useEffect, useRef}  from 'react'
-import Input from '../components/Input';
-import axios from 'axios'
-import Modal from '../components/Modal';
 import WebsiteLayout from '../layouts/WebsiteLayout'
-
-
+import '../styles/NewItinerary.css'
+import Input from '../components/Input'
+import Modal from '../components/Modal'
+import React, { useState, useRef } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+import { useGetOneCityQuery } from '../features/actions/citiesApi'
+import { useCreateActivityMutation } from '../features/actions/activitiesApi'
+import { usePostOneItineraryMutation } from '../features/actions/itinerariesApi'
 
 function NewItinerary() {
-  const name = useRef()
-  const city = useRef()
-  const price = useRef()
-  const likes = useRef()
-  const tags = useRef()
-  const captureData = async (e) => {
-    e.preventDefault()
-    const newItinerary = {
-      name: name.current.value,
-      // user: user.current.value,
-      city: city.current.value,
-      price: price.current.value,
-      likes: likes.current.value,
-      tags: tags.current.value,
-    }
-    console.log(newItinerary)
-    await axios.post('http://localhost:4000/cities/', newItinerary)
-    console.log(name)
-    // console.log(user
-    // )
+  const userId = localStorage.getItem('userId')
+  const [addItinerary, { data: body, error, isSuccess }] = usePostOneItineraryMutation()
+  const [addACtivity] = useCreateActivityMutation()
+  let alertMessage = ""
+  let itineraryId = ""
+  if (body?.success) {
+    alertMessage = body.message
+    itineraryId = body.response
+  } else if (error) {
+    alertMessage = error?.data.message
   }
-  const optionView = (option) => (
-    <>
-    <option value="" disabled selected hidden>Select a city...</option>
-    <option className="OptionSelect">{option.city}</option>
-    </>
-  );
-  
-  const [items, setItems] = useState([]);
+  const params = useParams()
+  const { id } = params
+  let { data: city } = useGetOneCityQuery(id)
+  const itName = useRef()
+  const price = useRef()
+  const duration = useRef()
+  const tags = useRef()
+  const actName = useRef()
+  const photo = useRef()
+  const [alertTimer, setAlertTimer] = useState()
 
-  const[isOpen,setIsOpen] = useState(false);
+  const [activities, setActivities] = useState([])
+  const handleNewItSubmit = async (e) => {
+    e.preventDefault()
+    clearTimeout(alertTimer)
+    const itinerary = {
+      name: itName.current.value,
+      user: userId,
+      city: id,
+      price: price.current.value,
+      tags: tags.current.value,
+      duration: duration.current.value
+    }
+    await addItinerary(itinerary)
+    console.log(alertMessage)
+    setIsOpen(true)
 
+    hideAlert()
+    //if (isSuccess) { e.target.reset() }
 
-const openModal = () => setIsOpen(true);
+    //if (activities?.length > 0) {
+    // activities.forEach(async (element) => {
+    //   element.itinerary = itineraryId
+    //   console.log(activities)
+    //   await addACtivity(element)
+    // })
+    // }
+  }
 
-const closeModal = () => setIsOpen(false);
+  const hideAlert = () => {
+    let timer = setTimeout(() => {
+      setIsOpen(false)
+    }, 3000)
+    setAlertTimer(timer)
+  }
+  const handleNewActSubmit = (e) => {
+    e.preventDefault()
+    const act = {
+      name: actName.current.value,
+      photo: photo.current.value
+    }
+    setActivities(oldArray => [...activities, act])
+    e.target.reset()
+    setOpen(false)
+  }
+  const [open, setOpen] = useState(false)
+  const handleOpen = () => {
+    open ?
+      setOpen(false)
+      : setOpen(true)
+  }
+  const [isOpen, setIsOpen] = useState(false);
+  const closeModal = () => setIsOpen(false);
 
-useEffect(() => {
-  axios.get("http://localhost:4000/cities/")
-    .then((res) => setItems(res.data));
-}, [])
-
+  const showActs = (act) => (
+    <div className="activities-container">
+      <div className="activities-item" key={act.name} style={{ backgroundImage: `url(${act.photo})` }}>
+        <p className="activities-item-name">{act.name}</p>
+      </div>
+    </div>
+  )
   return (
     <WebsiteLayout>
-    <Modal isOpen={isOpen} closeModal={closeModal} text="Itinerary Succesfully!"/>
-      <div className="newcity-body">
-        <div className='tittle-form-page'>
-          <img src="/img/gummy-city.svg" alt="icon" className='city-form' />
-          <h1 className='title-form'>New<span className='my-style'> Tinerary</span>!</h1>
+      <Modal isOpen={isOpen} closeModal={closeModal} text={alertMessage} result={isSuccess} />
+      <div className="newIt-main">
+        <div className='newIt-header'>
+          <img src={city?.photo} alt="city banner" className='newIt-city-img' />
+          <h1 className='title-form'>New<span className='my-style'> Itinerary</span>!</h1>
         </div>
-        <div className='FormImgContainer'>
-          <div className="MainNewCity">
-            <form className='form' onSubmit={captureData}>
-            <select onChange={optionView} className="EditSelect"  ref={city}>{items.response?.map(optionView)}</select>
-            <Input text="Name" reference={name}></Input>
-              <Input text="Price" reference={price}></Input>
-           
-             
-              <Input text="tags " reference={tags }></Input>
-
-        
-
-
-              <button onClick={openModal} className='welcomePage-button'>New Itinerary</button>
-
-              
-
-            </form>
+        <div className="newIt-forms-container">
+          <form className='newIt-it-form' id='newIt-it-form' onSubmit={handleNewItSubmit}>
+            <Input text="Name" reference={itName}></Input>
+            <Input text="Duration" reference={duration}></Input>
+            <Input text="Price" reference={price}></Input>
+            <Input text="tags " reference={tags}></Input>
+          </form>
+          <div className='newIt-act-container'>
+            <button className="welcomePage-button" type="button" onClick={handleOpen}>
+              {open ? "Cancel" : "Add activity"} </button>
+            {open &&
+              <form className='newIt-act-form' onSubmit={handleNewActSubmit}>
+                <Input text="Name" reference={actName}></Input>
+                <Input text="Photo URL" reference={photo}></Input>
+                <button className='welcomePage-button'>CONFIRM</button>
+              </form>
+            }
           </div>
         </div>
+        <div className='newIt-act-preview-container'>
+          <h3>Activites</h3>
+          <div className='newIt-act-preview'>
+            {activities.length > 0 ?
+              activities.map(showActs)
+              :
+              <p>no activities yet...</p>
+            }
+          </div>
+        </div>
+        <button className='welcomePage-button' type='submit' form='newIt-it-form'>CREATE ITINERARY</button>
       </div>
     </WebsiteLayout>
   )

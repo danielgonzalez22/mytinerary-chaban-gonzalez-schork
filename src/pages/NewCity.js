@@ -35,11 +35,11 @@ function NewCity() {
       description: description.current.value,
     }
     await addCity(city)
-    showAlert()
     setIsOpen(true)
-    e.target.reset()
+    hideAlert()
+    if(isSuccess){e.target.reset()}
   }
-  const showAlert = () => {
+  const hideAlert = () => {
     let timer = setTimeout(() => {
       setIsOpen(false)
     }, 3000)
