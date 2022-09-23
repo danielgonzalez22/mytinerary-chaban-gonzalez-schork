@@ -18,10 +18,10 @@ export const citiesAPI = createApi({
     }),
 
     postOneCity: builder.mutation({
-      query: (data) => ({
+      query: (city) => ({
         url: "/cities/",
         method: "POST",
-        body: data,
+        body: city,
       })
     }),
 

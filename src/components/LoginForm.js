@@ -24,8 +24,8 @@ const LogInForm = () => {
     alertMessage = error?.data.message
   }
   const [isOpen, setIsOpen] = useState(false)
-  const [alertTimer, setAlertTimer] = useState()
   const closeModal = () => setIsOpen(false)
+  const [alertTimer, setAlertTimer] = useState()
   const email = useRef()
   const password = useRef()
 
