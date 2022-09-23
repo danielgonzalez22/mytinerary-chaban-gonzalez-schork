@@ -1,0 +1,61 @@
+.newIt-main {
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;;
+    margin-bottom: 5vh;
+}
+
+.newIt-header {
+    text-align: center;
+}
+
+.newIt-city-img {
+    height: 50vh;
+    width: 100vw;
+    object-fit: cover;
+}
+
+.title-form {
+    font-size: 3rem;
+}
+
+.newIt-forms-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    flex-flow: column wrap;
+}
+
+.newIt-it-form {
+    border: 1px solid #eacda3;
+    border-radius: 5px;
+    align-self: center;
+    margin-bottom: 2vh;
+}
+
+.newIt-act-container {
+    align-self: center;
+    text-align: center;
+}
+
+.newIt-act-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    ;
+    flex-flow: column nowrap;
+}
+
+.newIt-act-preview-container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.newIt-act-preview {
+    display: flex;
+    align-items: space-around;
+
+}
