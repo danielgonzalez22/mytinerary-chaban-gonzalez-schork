@@ -1,21 +1,23 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
+import apiUrl from "../../api"
 export const commentsAPI = createApi({
   reducerPath: "commentsAPI",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:4000"
+    baseUrl: apiUrl
   }),
   endpoints: (builder) => ({
     createComment: builder.mutation({
-      query: (comment) => ({
+      query: (comment,token) => ({
         url: `/comments`,
         method: 'POST',
-        body: comment
+        body: comment,
+        headers: {"Authorization": "Bearer " + token}
       })
     }),
     getComment: builder.query({
       query: (id) => `/comments/${id}`
     }),
-    getItinerariesComment: builder.query({
+    getItinerariesComment: builder.mutation({
       query: (id) => ({
         url: `/comments/?itinerary=${id}`,
         method: "GET",
@@ -23,21 +25,23 @@ export const commentsAPI = createApi({
       transformResponse: (response) => response.response
     }),
     modifyComment: builder.mutation({
-      query: (comment) => ({
-        url: `/comments/${comment._id}`,
-        method: 'PATCH',
-        body: comment
-      })
+      query: ({id,data,token}) =>({
+      url: `/comments/${id}`,
+      method:'PUT',
+      body: data,
+      headers: {"Authorization": "Bearer " + token}
+      }),
+      transformResponse: res => res.response
     }),
     deleteComment: builder.mutation({
-      query: (comment) => ({
-        url: `/comment/${comment._id}`,
-        method: 'DELETE',
-        body: comment
-      })
+      query: ({id,token}) =>({
+          url: `/comments/${id}`,
+          method:'DELETE',
+          headers: {"Authorization": "Bearer " + token}
+          })
     })
   })
 })
 export const {
-  useCreateCommentMutation, useGetAllCommentsQuery, useDeleteCommentMutation, useModifyCommentMutation, useGetItinerariesCommentQuery
+  useCreateCommentMutation, useDeleteCommentMutation, useModifyCommentMutation,useGetItinerariesCommentMutation
 } = commentsAPI

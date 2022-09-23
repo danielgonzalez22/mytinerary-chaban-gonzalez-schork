@@ -1,18 +1,18 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
-import apiurl from "../../api"
+import apiUrl from "../../api"
 
 
 export const usersAPI = createApi({
     reducerPath: "usersAPI",
     baseQuery: fetchBaseQuery({
-        baseUrl: apiurl
+        baseUrl: apiUrl
     }),
     endpoints: (builder) => ({
         userSignUp: builder.mutation({
-            query: (newUser) => ({
+            query: (user) => ({
                 url: "/auth/signup",
                 method: "POST",
-                body: newUser
+                body: user
             }),
         }),
         userSignIn: builder.mutation({
@@ -28,8 +28,14 @@ export const usersAPI = createApi({
                 method: "POST",
                 body: user
             })
-        })
-    }),
-})
+        }),
+        verifyToken: builder.mutation({
+            query: (token)=>({
+                url: "/auth/token",
+                headers: {"Authorization": "Bearer " + token}
+                })
+            })
+        }),
+    })
 
-export const { useUserSignUpMutation, useUserSignInMutation, useUserSignOutMutation } = usersAPI
+export const { useUserSignUpMutation, useUserSignInMutation, useUserSignOutMutation, useVerifyTokenMutation } = usersAPI
