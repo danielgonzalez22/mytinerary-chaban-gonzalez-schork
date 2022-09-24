@@ -3,7 +3,8 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
-    align-items: center;;
+    align-items: center;
+    ;
     margin-bottom: 5vh;
 }
 
@@ -44,7 +45,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    ;
     flex-flow: column nowrap;
 }
 
@@ -58,4 +58,10 @@
     display: flex;
     align-items: space-around;
 
+}
+
+.newIt-buttons-container {
+    display: flex;
+    align-items: center;
+    gap: 8vw;
 }
