@@ -4,8 +4,8 @@ import { useGetItinerariesCommentMutation } from '../../features/actions/comment
 import { useGetItineraryActivitiesQuery } from '../../features/actions/activitiesApi'
 import '../../styles/Itinerary/Itinerary.css'
 export default function Itinerary(props) {
-  const itinerary = props.itinerary // empieza en citycard y  me envia una ciudad al hacer click, por props me envia un id de cities 
-  let { data: comments } = useGetItinerariesCommentMutation(itinerary._id) // utilizo los reducers de la api (los querys) se agrega use y query para poder usarlos, es un endpoint de reducer. me sirve para traerme datos. desestructuro data, la query me pide id de itinerary por mongo. de esta forma busco todos los comentarios y todas las actividades
+  const itinerary = props.itinerary
+  let { data: comments } = useGetItinerariesCommentMutation(itinerary._id)
   let { data: activities } = useGetItineraryActivitiesQuery(itinerary._id)
   return (
     <div key={itinerary._id}>
@@ -32,6 +32,6 @@ export default function Itinerary(props) {
       </div>
     </div>
   )
-} // para hacerle un map a activities debe estar definido algo, por eso pregunto para saber que no va a haber problemas ya que se hace cuando no sea undefined. luego pregunto si .lenght es mayor a 0
+}
 
 

@@ -37,10 +37,17 @@ export default function City() {
                 {itineraries.map(itinerary => <Itinerary itinerary={itinerary} />)}
               </>
               :
-              <div>
-                {itineraries && itineraries.length > 0 && !loggedUserRole ? itineraries.map(itinerary => <Itinerary itinerary={itinerary} />)
-                  : <p>No itineraries here...<span>{<LinkRouter to={`/NewItinerary/${id}`}><button className="goBack">ADD ONE</button></LinkRouter>}</span></p>}
-              </div>
+              <>
+                {itineraries && itineraries.length > 0 ? itineraries.map(itinerary => <Itinerary itinerary={itinerary} />)
+                  :
+                  <>
+                    {loggedUserRole ? <p>No itineraries here...<span>{<LinkRouter to={`/NewItinerary/${id}`}><button className="goBack">ADD ONE</button></LinkRouter>}</span></p>
+                      :
+                      <p>No itineraries here...</p>
+                    }
+                  </>
+                }
+              </>
             }
           </div>
           <button className="goBack" onClick={() => navigate(-1)}>Go back</button>
