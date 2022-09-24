@@ -9,7 +9,7 @@ export default function MyTineraries() {
   return (
     <WebsiteLayout>
       <div className='container-itineraries'>
-        {items?.map((item) => <Itinerary itinerary={item} />)}
+        {items?.map((item) => <Itinerary itinerary={item} userId={userId} />)}
       </div>
     </WebsiteLayout>
   )

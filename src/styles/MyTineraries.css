@@ -1,9 +1,12 @@
 .container-itineraries {
-    margin-inline: 10vw;
     padding: 0;
     color: #444;
     min-height: 100vh;
     display: flex;
     flex-flow: column nowrap;
+    align-items: center;
+    text-align: center;
+    gap:10vh;
+    margin-top: 12vh;
     margin-bottom: 12vh;
 }

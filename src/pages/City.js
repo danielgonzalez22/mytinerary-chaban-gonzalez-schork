@@ -7,7 +7,8 @@ import { useGetOneCityQuery } from '../features/actions/citiesApi'
 import { useGetCityItinerariesQuery } from '../features/actions/itinerariesApi'
 
 export default function City() {
-  const loggedUserRole=localStorage.getItem("userRole")
+  const loggedUserRole = localStorage.getItem("userRole")
+  const loggedUserId = localStorage.getItem("userId")
   const params = useParams()
   const { id } = params
   let { data: city } = useGetOneCityQuery(id)
@@ -17,23 +18,27 @@ export default function City() {
   return (
     <WebsiteLayout>
       {city ?
-        <div className='city-container'>
+        <div className='city-main'>
           <img className='city-img' src={city.photo} alt='city-img'></img>
           <div className='city-details'>
-            <ul>
-              <li>Name: {city.city}</li>
-              <li>Country: {city.country}</li>
-              <li>Population: {city.population}</li>
-              <li>Foundation: {city.foundation}</li>
-            </ul>
-            <h3>Description</h3>
-            <p className='description-p'>{city.description}</p>
+            <div className='city-info'>
+              <ul>
+                <li>Name: {city.city}</li>
+                <li>Country: {city.country}</li>
+                <li>Population: {city.population}</li>
+                <li>Foundation: {city.foundation}</li>
+              </ul>
+            </div>
+            <div className='city-description'>
+              <h3 className='description-title'>Description</h3>
+              <p className='description-p'>{city.description}</p>
+            </div>
           </div>
-          <div>
+          <div className='city-itineraries'>
             {itineraries && itineraries.length > 0 && loggedUserRole ?
               <>
                 {<LinkRouter to={`/NewItinerary/${id}`}><button className="goBack">ADD Itinerary</button></LinkRouter>}
-                {itineraries.map(itinerary => <Itinerary itinerary={itinerary} />)}
+                {itineraries.map(itinerary => <Itinerary itinerary={itinerary} userId={loggedUserId} />)}
               </>
               :
               <>

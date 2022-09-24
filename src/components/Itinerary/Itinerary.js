@@ -5,6 +5,11 @@ import { useGetItineraryActivitiesQuery } from '../../features/actions/activitie
 import '../../styles/Itinerary/Itinerary.css'
 export default function Itinerary(props) {
   const itinerary = props.itinerary
+  const userId = props.userId
+  let isOwned = false
+  if (userId === itinerary.user._id) {
+    isOwned = true
+  }
   let { data: comments } = useGetItinerariesCommentMutation(itinerary._id)
   let { data: activities } = useGetItineraryActivitiesQuery(itinerary._id)
   return (
@@ -25,8 +30,12 @@ export default function Itinerary(props) {
         </div>
       </div>
       <div className="buttons-it">
-        <button className="button-it">Delete</button>
-        <button className="button-it">Edit</button>
+        {isOwned &&
+          <>
+            <button className="button-it">Delete</button>
+            <button className="button-it">Edit</button>
+          </>
+        }
       </div>
       <div className="activities-it">
         {activities && activities.length > 0 ? activities.map(activity => <Activity activity={activity} />) : <p>No activities here...</p>}
