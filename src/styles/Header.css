@@ -20,7 +20,6 @@ nav {
     font-weight: 500;
     text-decoration: none;
     padding: 8px;
-    transition: 0.5s;
 }
 
 .accounts img {
@@ -67,28 +66,44 @@ nav {
     border-radius: 5px;
     z-index: 2;
 }
-.user-img{
-    background-color:rgb(247, 214, 170);
-    border: 0px;
 
+.user-img {
+    background-color: rgb(247, 214, 170);
+    border: 0px;
 }
-.user-button{
+
+.user-button {
     border: 0px;
-    background-color:rgb(247, 214, 170);
+    background-color: rgb(247, 214, 170);
     color: rgb(247, 214, 170);
+}
 
+.userMenu-button {
+    background: none;
+    color: black;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 1.8vh;
+    font-weight: 500;
+    text-decoration: none;
+}
 
+.userMenu-button:hover {
+    font-weight: 700;
 }
 
 @media (min-width: 600px) {
     .burger-nav {
-       display: none;
+        display: none;
     }
 }
+
 @media (max-width: 600px) {
     nav {
         display: none;
     }
+
     .suitcase-logo {
         display: none;
     }

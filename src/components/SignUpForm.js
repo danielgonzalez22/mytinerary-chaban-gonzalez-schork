@@ -65,7 +65,7 @@ const SignUpForm = (props) => {
               <img src="https://img.icons8.com/external-bearicons-outline-color-bearicons/344/external-sign-up-call-to-action-bearicons-outline-color-bearicons-2.png" alt="icon" />
             </div>
           </div>
-          {role === "Admin" ?
+          {role === "admin" ?
             <>
               <h1 className="h1-form">
                 ADMIN Sign up <span className="my-style"> </span>

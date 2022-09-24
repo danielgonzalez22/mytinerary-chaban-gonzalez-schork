@@ -18,10 +18,12 @@ const UserMenu = () => {
   ]
   const navigate = useNavigate();
   const navLinks = (page) => <LinkRouter className='navLink' to={page.to} key={page.name}> {page.name} </LinkRouter>
-  let userMail = localStorage.getItem("userMail")
-  let user = { mail: userMail }
+  const userMail = localStorage.getItem("userMail")
+  const loggedUserRole = localStorage.getItem("userRole")
+  const user = { mail: userMail }
   const menuIcon = useRef()
   const [signOut] = useUserSignOutMutation()
+
   const handleLogOut = async () => {
     await signOut(user)
     localStorage.clear()
@@ -29,8 +31,19 @@ const UserMenu = () => {
     navigate("/")
   }
   let menuContent
-  if (userMail) {
-    menuContent = (<button onClick={handleLogOut}>Log Out</button>)
+  if (loggedUserRole) {
+    if (loggedUserRole === 'admin') {
+      menuContent = (
+        <>
+          <LinkRouter className='userMenu-button' to="/auth/signup" key="createAdmin">Create Admin</LinkRouter>
+          <button className='userMenu-button' onClick={handleLogOut}>Log Out</button>
+        </>
+      )
+    } else {
+      menuContent = (
+        <button className='userMenu-button' onClick={handleLogOut}>Log Out</button>
+      )
+    }
   } else {
     menuContent = (pages.map(navLinks))
   }
