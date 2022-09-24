@@ -2,7 +2,7 @@ import WebsiteLayout from '../layouts/WebsiteLayout'
 import '../styles/NewItinerary.css'
 import Input from '../components/Input'
 import Modal from '../components/Modal'
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useGetOneCityQuery } from '../features/actions/citiesApi'
 import { useCreateActivityMutation } from '../features/actions/activitiesApi'
@@ -11,7 +11,7 @@ import { usePostOneItineraryMutation } from '../features/actions/itinerariesApi'
 function NewItinerary() {
   const userId = localStorage.getItem('userId')
   const [addItinerary, { data: body, error, isSuccess }] = usePostOneItineraryMutation()
-  const [addACtivity] = useCreateActivityMutation()
+  const [addActivity] = useCreateActivityMutation()
   let alertMessage = ""
   let itineraryId = ""
   if (body?.success) {
@@ -29,8 +29,8 @@ function NewItinerary() {
   const tags = useRef()
   const actName = useRef()
   const photo = useRef()
+  const newItForm = useRef()
   const [alertTimer, setAlertTimer] = useState()
-
   const [activities, setActivities] = useState([])
   const handleNewItSubmit = async (e) => {
     e.preventDefault()
@@ -44,20 +44,20 @@ function NewItinerary() {
       duration: duration.current.value
     }
     await addItinerary(itinerary)
-    console.log(alertMessage)
     setIsOpen(true)
-
     hideAlert()
-    //if (isSuccess) { e.target.reset() }
-
-    //if (activities?.length > 0) {
-    // activities.forEach(async (element) => {
-    //   element.itinerary = itineraryId
-    //   console.log(activities)
-    //   await addACtivity(element)
-    // })
-    // }
   }
+
+  useEffect(() => {
+    if (isSuccess && activities?.length > 0) {
+      activities.forEach(async (element) => {
+        element.itinerary = itineraryId
+        await addActivity(element)
+      })
+      setActivities(oldArray => [])
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSuccess])
 
   const hideAlert = () => {
     let timer = setTimeout(() => {
@@ -100,7 +100,7 @@ function NewItinerary() {
           <h1 className='title-form'>New<span className='my-style'> Itinerary</span>!</h1>
         </div>
         <div className="newIt-forms-container">
-          <form className='newIt-it-form' id='newIt-it-form' onSubmit={handleNewItSubmit}>
+          <form className='newIt-it-form' id='newIt-it-form' ref={newItForm} onSubmit={handleNewItSubmit}>
             <Input text="Name" reference={itName}></Input>
             <Input text="Duration" reference={duration}></Input>
             <Input text="Price" reference={price}></Input>
