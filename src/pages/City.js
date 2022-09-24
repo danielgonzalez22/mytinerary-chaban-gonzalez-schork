@@ -5,10 +5,9 @@ import { useParams, useNavigate } from 'react-router-dom'
 import Itinerary from "../components/Itinerary/Itinerary"
 import { useGetOneCityQuery } from '../features/actions/citiesApi'
 import { useGetCityItinerariesQuery } from '../features/actions/itinerariesApi'
-import { useState } from 'react'
 
 export default function City() {
-  const [loggedUserRole, setLoggedUserRole] = useState(localStorage.getItem("userRole"))
+  const loggedUserRole=localStorage.getItem("userRole")
   const params = useParams()
   const { id } = params
   let { data: city } = useGetOneCityQuery(id)
