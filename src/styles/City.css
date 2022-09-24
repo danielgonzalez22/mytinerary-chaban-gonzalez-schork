@@ -2,37 +2,59 @@ html {
     overflow-x: hidden;
 }
 
-
-
-.city-container {
+.city-main {
     min-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    margin-bottom: 7vh;
 }
 
 .city-img {
     height: 50vh;
-    width: 90vw;
+    width: 100vw;
     object-fit: cover;
 }
 
 .city-details {
     width: 90vw;
-    margin-top: 1vh;
+    margin-top: 3vh;
+    margin-bottom: 7vh;
     background-color: rgba(240, 234, 234, 0.42);
     box-shadow: 0 0 0.9375em rgba(0, 0, 0, 0.219);
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-size: 1.5rem;
+    flex-flow: wrap;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.2rem;
+    padding: 2vh;
+}
+
+.city-info {
+    width: max-content;
 }
 
 li::marker {
-    display: none;
-    color: rgb(247, 235, 209);
+    color: rgba(175, 54, 9, 0.69);
+}
+
+.city-description {
+    width: 60%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.description-title {
+    text-align: center;
+}
+
+.description-p {
+    font-size: 3vh;
+}
+
+.city-itineraries {
+    text-align: center;
 }
 
 .goBack {
@@ -54,39 +76,4 @@ li::marker {
     background-position: right center;
     color: #fff;
     text-decoration: none;
-}
-
-
-
-.description-p {
-    font-size: 3vh;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    max-width: fit-content;
-}
-
-@media (max-width: 550px) {
-    .city-img {
-        height: 50vh;
-    }
-
-    .description-p {
-        font-size: 2vh;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        max-width: fit-content;
-    }
-
-    .city-details {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        font-size: 2vh;
-    }
-
-    .city-img {
-        height: 300px;
-    }
 }

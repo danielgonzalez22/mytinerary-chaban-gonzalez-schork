@@ -8,6 +8,9 @@ export const itinerariesAPI = createApi({
     getAllItineraries: builder.query({
       query: () => `/itineraries/`,
     }),
+    getOneItinerary: builder.query({
+      query: (id) => `/itineraries/${id}`,
+    }),
     getCityItineraries: builder.query({
       query: (id) => ({
         url: `/itineraries/?city=${id}`,
@@ -46,6 +49,7 @@ export const itinerariesAPI = createApi({
 });
 export const {
   useGetAllItinerariesQuery,
+  useGetOneItineraryQuery,
   useGetItinerariesUsersQuery,
   useDeleteItineraryMutation,
   useModifyItineraryMutation,

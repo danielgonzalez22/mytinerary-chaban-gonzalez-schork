@@ -12,6 +12,7 @@ import React from "react";
 import SignUp from "./pages/SignUp"
 import Login from "./pages/Login"
 import NewItinerary from "./pages/NewItinerary"
+import PatchItinerary from "./pages/PatchItinerary"
 
 function App() {
   const isLogged = useSelector(state => state.isLogged)
@@ -27,6 +28,7 @@ function App() {
         <Route path='/City/:id' element={<City />}></Route>
         <Route path='/MyTineraries' element={loggedUserRole ? <MyTineraries /> : <WelcomePage />}></Route>
         <Route path='/NewItinerary/:id' element={loggedUserRole ? <NewItinerary /> : <WelcomePage />}></Route>
+        <Route path='/PatchItinerary/:id' element={loggedUserRole ? <PatchItinerary /> : <WelcomePage />}></Route>
         <Route path='/NewCity' element={loggedUserRole === 'admin' ? <NewCity /> : <WelcomePage />}></Route>
         <Route path='/EditCity' element={loggedUserRole === 'admin' ? <EditCity /> : <WelcomePage />}></Route>
         <Route path='/auth/signup' element={!loggedUserRole || loggedUserRole === 'admin' ? <SignUp /> : <WelcomePage />}></Route>

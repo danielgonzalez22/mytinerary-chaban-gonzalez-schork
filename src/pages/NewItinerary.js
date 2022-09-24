@@ -32,6 +32,7 @@ function NewItinerary() {
   const newItForm = useRef()
   const [alertTimer, setAlertTimer] = useState()
   const [activities, setActivities] = useState([])
+  const navigate = useNavigate();
   const handleNewItSubmit = async (e) => {
     e.preventDefault()
     clearTimeout(alertTimer)
@@ -128,7 +129,10 @@ function NewItinerary() {
             }
           </div>
         </div>
+        <div className='newIt-buttons-container'>
+        <button className="goBack" onClick={() => navigate(-1)}>Go back</button>
         <button className='welcomePage-button' type='submit' form='newIt-it-form'>CREATE ITINERARY</button>
+        </div>
       </div>
     </WebsiteLayout>
   )
