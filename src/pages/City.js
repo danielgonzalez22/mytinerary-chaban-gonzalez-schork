@@ -13,7 +13,7 @@ export default function City() {
   const { id } = params
   let { data: city } = useGetOneCityQuery(id)
   let { data: itineraries } = useGetCityItinerariesQuery(id)
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <WebsiteLayout>
