@@ -1,6 +1,5 @@
 import { useEffect } from "react"
 import { useState } from "react"
-import "../styles/Alert.css"
 function Alert(props) {
     let [message,setMessage] = useState("")
     let [load,setLoad] = useState("")
