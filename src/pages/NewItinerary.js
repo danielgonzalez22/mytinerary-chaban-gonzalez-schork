@@ -87,8 +87,8 @@ function NewItinerary() {
 
   const showActs = (act) => (
     <div className="activities-container">
-      <div className="activities-item" key={act.name} style={{ backgroundImage: `url(${act.photo})` }}>
-        <p className="activities-item-name">{act.name}</p>
+      <div className="activity-item" key={act.name} style={{ backgroundImage: `url(${act.photo})` }}>
+        <p className="activity-item-name">{act.name}</p>
       </div>
     </div>
   )
